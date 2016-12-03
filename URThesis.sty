@@ -1,0 +1,65 @@
+\ProvidesPackage{URThesis}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[pdftex]{graphicx}
+\usepackage{bm}
+\usepackage{natbib}
+%\usepackage{chapterbib}
+\usepackage{appendix}
+
+% Macros for rendering useful physics symbols
+
+\newcommand{\op}[1]{\hat{\bm #1}}
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\pr}[1]{\ket{#1}\bra{#1}}
+\newcommand{\ipr}[2]{\langle #1 \vert #2 \rangle}
+\newcommand{\mean}[1]{\left\langle #1 \right\rangle}
+\newcommand{\cw}{\circlearrowright}
+\newcommand{\ccw}{\circlearrowleft}
+
+% Shengshi macros for biphotons paper
+\usepackage{xargs}
+\newcommand{\add}[1]{{\color{blue}#1}}
+\newcommand{\rem}[1]{{\color{red}\sout{#1}}}
+\global\long\def\i{{\rm i}}
+\global\long\def\e{{\rm e}}
+\global\long\def\d{{\rm d}}
+\newcommandx\hd[1][usedefault, addprefix=\global, 1=]{\hat{d}_{#1}}
+\global\long\def\pd{\partial_{d}}
+\global\long\def\mi{\mathcal{I}}
+\newcommandx\np[1][usedefault, addprefix=\global, 1=]{N_{+}^{#1}}
+\newcommandx\nn[1][usedefault, addprefix=\global, 1=]{N_{-}^{#1}}
+\newcommandx\pp[1][usedefault, addprefix=\global, 1=]{p_{+}^{#1}}
+\newcommandx\pn[1][usedefault, addprefix=\global, 1=]{p_{-}^{#1}}
+\global\long\def\E#1{{\mathbb E}[#1]}
+\global\long\def\var#1{{\rm {Var}}[#1]}
+\global\long\def\cov#1{{\rm {Cov}}[#1]}
+\newcommandx\npm[1][usedefault, addprefix=\global, 1=]{N_{\pm}^{#1}}
+\newcommandx\ppm[1][usedefault, addprefix=\global, 1=]{p_{\pm}^{#1}}
+\global\long\def\t{{\rm tot}}
+\newcommandx\al[2][usedefault, addprefix=\global, 1=, 2=]{\alpha_{#1}^{#2}}
+\newcommandx\ppp[1][usedefault, addprefix=\global, 1=]{p_{++}^{#1}}
+\newcommandx\ppn[1][usedefault, addprefix=\global, 1=]{p_{+-}^{#1}}
+\newcommandx\pnp[1][usedefault, addprefix=\global, 1=]{p_{-+}^{#1}}
+\newcommandx\pnn[1][usedefault, addprefix=\global, 1=]{p_{--}^{#1}}
+\global\long\def\npp{N_{++}}
+\global\long\def\npn{N_{+-}}
+\global\long\def\nnp{N_{-+}}
+\global\long\def\nnn{N_{--}}
+\global\long\def\sd{\psi_{d}}
+\global\long\def\kd{|\sd\rangle}
+\global\long\def\bas#1{|e_{#1}\rangle}
+\newcommandx\pk[1][usedefault, addprefix=\global, 1=k]{p_{#1}}
+\global\long\def\re{{\rm Re}}
+\global\long\def\im{{\rm Im}}
+\global\long\def\pd{\partial_{d}}
+\global\long\def\iq{\mathcal{I}_{Q}}
+\global\long\def\inn#1#2{\langle#1|#2\rangle}
+\global\long\def\tk{\theta_{k}}
+\global\long\def\ei#1{\e^{\i#1}}
+\global\long\def\et{\ei{\tk}}
+\global\long\def\sk{\sum_{k=1}^{n}}
+\global\long\def\ic{\mathcal{I}_{C}}
+\global\long\def\rk{\gamma_{k}}

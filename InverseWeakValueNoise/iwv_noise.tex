@@ -1,0 +1,246 @@
+\chapter{Robustness of weak value amplification to technical noise}
+In the original work on weak value measurement by Aharonov, Albert, and Vaidman \cite{Aharonov1988}, the authors showed that the shift of a ``meter'' state (\emph{i.e.}~a pointer state), which is entangled with a ``system'' state, can be amplified arbitrarily in some basis at the cost of reducing the probability of detecting a given event due to a process termed postselection.  This amplification led eventually to interest in using weak values for the purpose of precision measurements \cite{Hosten2008,Dixon2009}. 
+ 
+In recent years, postselected weak measurements have been used to great effect in metrological applications \cite{Dixon2009,Starling2009,Starling2010,Starling2010a,Howell2010,Hogan:11,Egan:12,Strubi2013,Viza:13,Zhou2012,Zhou2013}.  For a more complete overview of both the relevant theory and experiments, see the review article by Dressel \emph{et al.}~\cite{Dressel2014}.  While it is possible for a postselected measurement to achieve higher sensitivity than nonpostselected measurements using quantum pointer states \cite{Pang2014,Pang2015}, the overwhelming majority of experimental work to date has used classical (\emph{i.e.}~coherent) states which can not improve over traditional schemes with postselection in shot-noise limited systems \cite{Pang2015}.
+
+The principal reason weak measurements have improved sensitivity is that they allow certain types of technical and systematic noise to be overcome, while still achieving the same sensitivity as ideal  traditional measurement schemes \cite{Starling2009,Jordan2014,Knee2014,Pang2016}.  Previous theoretical work demonstrating the effectiveness of weak value amplification in reducing the negative effects of technical noise has been in what we term the \emph{weak value regime}.  Namely, a small but known phase parameter is used in the system to amplify a very small and unknown interaction parameter (\emph{i.e.,}~one coupling system and meter quantum dynamical variables).  
+
+In this work we consider the opposite case where we have a small but known interaction parameter which is used to amplify a very small and unknown phase.  We refer to this as the \emph{inverse weak value regime}, following previous work \cite{Starling2010a,Dressel2013,Lyons2015,Kofman2012}. 
+
+The paper is organized as follows: in Sec.~\ref{sec:inverse weak values}, we briefly review weak measurements in a two level system, and compare basic results in the weak value and inverse weak value regimes.  In Sec.~\ref{sec:noiseless}, we calculate the Fisher information for weak measurements in the inverse weak value regime, and compare the result with traditional phase estimation schemes. In Sec.~\ref{sec:gaussian noise}, we treat the case of uncorrelated additive Gaussian technical noise, and in Sec.~\ref{sec:jitter} we treat angular jitter and diffraction effects in optical phase measurements.  In Sec.~\ref{sec:frequency}, we extend our analysis to the case of precision frequency measurements in the inverse weak value regime, and demonstrate that such a measurement will have the same robustness to technical noise as phase measurements.
+
+\section{Inverse weak value}\label{sec:inverse weak values}
+Here we briefly recall the usual weak value amplification process in a two level system, and then discuss how this relates to the process of amplification by the so-called inverse weak value.  
+
+We take an initial ``system'' state $\ket{i}$ and ``meter'' state $\ket{\varphi}$ to be in a product state, \emph{i.e.,} $\ket{\Psi} = \ket{i} \otimes \ket{\varphi}$.  An effective interaction Hamiltonian 
+\begin{align}\label{eq:kick hamiltonian}
+	H_1 &= g_1(t) \op{\sigma}_z \otimes \op{x},
+\end{align}
+entangles the system and meter weakly, with $g(t) \ll 1$ for some short time interval.  Here $\op{\sigma}_z$ is the usual Pauli z spin operator which acts on the system state space, and $\op{x}$ is taken to be the (transverse) position operator acting on the meter state space.  If the intended system postselection state $\ket{f}$ is orthogonal to $\ket{i}$, it is also necessary to introduce a second interaction in order to create some small but nontrivial transition probability between the initial and final system states.  A simple choice would be 
+\begin{align}\label{eq:phase hamiltonian}
+	H_2 &= g_2(t) \op{\sigma}_z \otimes \op{1},
+\end{align}
+which only has a nontrivial action on the system space.  Qualitatively, we see that $g_1(t)$ generates a displacement in the basis of the operator conjugate to $\op{x}$, with the sign of the displacement opposite for each of the two basis vectors, and $g_2(t)$ generates a relative phase between the two basis vectors of $\op{\sigma}_z$.  The action of these two operators on the state $\ket{\Psi}$ is straightforwardly given by the unitary operators 
+\begin{align}
+	\nonumber\op{U}_1 &= \exp(-i k \op{\sigma}_z \otimes \op{x}), \\
+	\op{U}_2 &= \exp(-i  \frac{\phi}{2} \op{\sigma}_z \otimes \op{1}),
+\end{align}
+where $k$ and $\phi$ are effective interaction parameters found by integrating the above Hamiltonians over the relevant time interval.  
+
+Since $[\op{U}_1, \op{U}_2] = 0$, we can simply combine the operators as $\op{U} \equiv \op{U}_1 \op{U}_2$ by adding the exponents.
+%expand the product $\op{U} \equiv \op{U}_1 \op{U}_2$ using the fact that $\op{\sigma}_z^2 = 1$,
+%\begin{align}
+%	\op{U} &= \exp\left(-i\op{\sigma}_z \otimes (k \op{x} + \frac{\phi}{2} \op{1}) \right).
+%	\nonumber = \sum_{j=0}& \frac{(-1)^j (k \op{x} + \frac{\phi}{2} \op{1})^{2j}}{(2j)!}  \\& -i \op{\sigma}_z \sum_{j=0} \frac{(-1)^j (k \op{x} + \frac{\phi}{2} \op{1})^{2j+1}}{(2j+1)!}.
+%\end{align}
+%From the form of this expression it is clear that if our initial and final system states are orthogonal, only the second sum can be nonzero.  If they are orthogonal, we also must require that $\ket{i}$ and $\ket{f}$ are not eigenstates of $\op{\sigma}_z$ for a nonzero postselction probability. 
+
+Beginning with our state $\ket{\Psi}$, we find that in the diagonal basis of $\op{x}$, we can represent the postselected state as 
+\begin{align}\label{eq: general postselected state}
+	\nonumber \ipr{x}{\Psi^{'}} &= \bra{x} \otimes \frac{\pr{f}}{\sqrt{p_f}} \op{U} \ket{i} \otimes \ket{\varphi}, \\
+	&= \frac{-i \bra{f}\op{\sigma}_z \ket{i}}{\sqrt{p_f}} \sin \left(k x + \frac{\phi}{2}\right) \ipr{x}{\varphi} \ket{f},
+\end{align}
+where $p_f$ is the postselection probability.  From this point we may ignore the system state and focus on the meter after postselction.  The postelection probability is calculated directly as 
+\begin{align}
+	p_f &= \int_{-\infty}^{\infty} \text{d}x~ |\ipr{x}{\varphi}|^2 \left|\bra{f}\op{U} \ket{i}\right|^2.
+\end{align} 
+In the specific case of a Gaussian initial meter state with variance $\sigma^2$, this yields 
+\begin{align}\label{eq:postselection probability}
+	p_f &= \frac{1 -  e^{-2k^2\sigma^2}\cos\phi}{2}.
+\end{align}
+In the \emph{weak value regime}, we have $k\sigma$ small compared to $\frac{\phi}{2}$ for values of $x$ where $|\ipr{x}{\varphi}|$ is not very small.  For a concrete example we take $\ket{i} = 2^{-1/2}(\ket{0} + \ket{1})$, and  $\ket{f} = 2^{-1/2}(\ket{0} - \ket{1})$.  In the weak value regime this yields $p_f \approx |\bra{f}\op{U_2}\ket{i}|^2 =\sin^2 \frac{\phi}{2}$, and $\mean{x} \approx k \sigma^2 \cot \frac{\phi}{2}$.  Hence, a small known phase parameter $\phi/2$ is used to amplify $\mean{x}$, which in turn allows for an improved estimation of the unknown parameter $k$.
+
+In the \emph{inverse weak value regime}, the situation is reversed, where one wishes to use a small known parameter $k$ to amplify an unknown phase parameter $\phi/{2}$.  This does not change Eq.~\eqref{eq: general postselected state}, but there is no simple way to calculate the postselection probability without assuming a particular initial meter state.  Also note that in this regime, there is certain to be an eigenvalue $x$ which yields zero amplitude upon postselection, \emph{i.e.,} where $k x + \phi/{2} = 0$.  Taking the same initial and final system states as above, and again assuming a Gaussian initial meter state with variance $\sigma^2$, we find 
+\begin{align}\label{eq:noiseless iwv}
+	\nonumber p_f &\approx k^2 \sigma^2, \\
+	\mean{x} &\approx \frac{\phi}{k}.
+\end{align}
+
+\section{Fisher information}\label{sec:noiseless}
+We now turn our attention to estimating the unknown parameter $\phi$ in the inverse weak value regime for a Gaussian initial meter state.  Hence, postselected events will be sampled from the probability distribution
+\begin{align}\label{eq: general distribution}
+	p(x|\phi) &= \frac{\left|\bra{f}\op{\sigma}_z \ket{i}\right|^2}{p_f}\sin^2\left(kx + \phi/2\right)\left|\ipr{x}{\varphi}\right|^2,
+\end{align}  
+where the postselection probability $p_f$ is given by Eq.~\eqref{eq:postselection probability}.
+As in the previous section, we will choose orthogonal initial and final states so that $\bra{f}\op{\sigma}_z\ket{i} = 1$.
+The metric we will use to determine the sensitivity of the estimation scheme is the Fisher information, defined by 
+\begin{align}\label{eq:noiseless fisher}
+	\nonumber \mathcal{I}(\phi) &= -\int_{-\infty}^{\infty} \text{d}x~ p(x|\phi)\partial_\phi^2 \ln p(x|\phi), \\
+	&= \frac{e^{4k^2\sigma^2} - 1}{(e^{2k^2\sigma^2}-\cos \phi)^2}.
+\end{align}
+
+If there are $\nu$ total events, then $p_f \nu$ events will be postselected.  Since the Fisher information scales linearly with the number of independent detected events, we are interested in the quantity
+\begin{align}
+	\mathcal{I}_\nu (\phi) &= p_f \nu \mathcal{I}(\phi), \nonumber \\
+	&\approx  \frac{\nu}{2}\left(1 + e^{-2k^2\sigma^2}\right),
+\end{align} 
+where the approximation is from expanding to first order in $\phi$ (\emph{i.e.}~$\cos \phi \approx 1$). This expression approaches $\nu$ for small $k\sigma$.  Since $\mathcal{I}_\nu(\phi) = \nu$ for more conventional phase estimation schemes such as balanced homodyne detection (or any scheme with Poissonian uncertainties), the inverse weak value approach can approximately recover the full Fisher information with a small subensemble of all events.  The same result has been found in the weak value regime \cite{Jordan2014}.
+
+\section{Uncorrelated gaussian noise}\label{sec:gaussian noise}
+\begin{figure}
+	\includegraphics[]{InverseWeakValueNoise/Figures/gaussianNoisePlot.pdf}
+	\caption{Fisher information for estimation of the parameter $\phi$ under the effect of additive Gaussian white noise, for different noise amplitudes $J$ as a function of the initial state standard deviation $\sigma$.  The product $k\sigma$ is held constant in this plot to keep the postselection probability \eqref{eq:postselection probability} constant.  }
+\end{figure}
+For the case of uncorrelated Gaussian technical noise, such as might be the case with beam jitter in an optical experiment, the measured signal position $s$ will be the sum of a position $x$ drawn from the distribution \eqref{eq: general distribution} and a random displacement $\xi$ drawn from a Gaussian distribution with zero mean and variance $J^2$.  Hence, $s = x + \xi$, and 
+\begin{align}\label{eq:gaussian noise distribution}
+	p(s|\phi) &= \frac{1}{\sqrt{2\pi J^2}}\int \text{d}\xi\int \text{d}x~e^{-\xi^2/2J^2}p(x|\phi)\delta(s - x - \xi), \nonumber\\
+	&= \frac{1}{\sqrt{2\pi J^2}}\int \text{d}x~\exp\left(\frac{-(s - x)^2}{2J^2}\right)p(x|\phi), \nonumber \\
+	&\nonumber= \frac{1}{\sqrt{2\pi (J^2 + \sigma^2)}}\exp\left[\frac{-s^2}{2(J^2+\sigma^2)}\right]\left(1 - \right.\\ &\left.\cos\left[\frac{2ks\sigma^2}{J^2 + \sigma^2} + \phi \right]\exp\left[\frac{-2J^2k^2\sigma^2}{J^2 + \sigma^2}\right]\right).
+\end{align}
+
+It is difficult to directly calculate the Fisher information of this distribution for an estimator of the parameter $\phi$.  If we expand to linear order in $\phi$ and $k\sigma$ with $\phi < k\sigma < 1$ however, the integration is straightforward.  For clarity of the final result we also expand to first order in $J/\sigma$, however our conclusions are not dependent on this truncation.  The resulting information is given by
+\begin{align}
+	\mathcal{I}(\phi) &= \frac{1}{k^2\sigma^2}\left(1 - \sqrt{\frac{\pi}{2}}\frac{J}{\sigma}\right).
+%	\mathcal{I}(\phi)&=-\frac{\sqrt{2 \pi } J e^{\frac{J^2}{2 \sigma ^2}} \text{erfc}\left(\frac{J}{\sqrt{2} \sigma }\right) \left(J^4 k^2+3 J^2+3 \left(k^2 \sigma ^4+\sigma ^2\right)\right)+2 \sigma ^3 \left(J^2 k^2-3\right)-2 J^2 \sigma  \left(J^2 k^2+3\right)}{6 k^2 \sigma ^3 \left(J^2+\sigma ^2\right)},
+\end{align}
+%which is not terribly enlightening in this form.  
+If we choose $\sigma \gg J$, this expression tends to 
+\begin{align}
+	\mathcal{I}(\phi) &= \frac{1}{k^2\sigma^2}.
+\end{align}
+Recall $k^2\sigma^2$ is equal to the postselection probability \eqref{eq:noiseless iwv} in the inverse weak value regime.  We also note this is equal to Eq.\eqref{eq:noiseless fisher} when expanded to lowest nonvanishing order in $\phi$ and $k\sigma$.  Hence, for a sufficiently large choice of $\sigma$ the Fisher information for $\nu$ independent events is given by 
+\begin{align}
+	\mathcal{I}_\nu(\phi) &= p_f \nu \mathcal{I}(\phi), \nonumber \\
+	&\approx \nu.
+\end{align}
+Remarkably, it is possible to approximately recover the full Fisher information in the presence of additive Gaussian technical noise, again using only a small subensemble of total events, provided the Gaussian width $\sigma$ is sufficiently large.
+
+%It is difficult to calculate the Fisher information for this distribution.  However, it is straightforward to compute the first two moments of $\op{S}$, \emph{i.e.}, the random variable describing the position of the combined signal and Gaussian white noise, which allows us to compute the signal-to-noise ratio.  From this we will also be able to use simple arguments to put a lower bound on the Fisher information.  The first two moments of $\op{S}$ to first order in $\phi$ are 
+%\begin{align}\label{eq:gaussian noise signal moments}
+%	\mean{S} &\approx  \frac{\phi}{k}, \nonumber \\
+%	\mean{S^2} &\approx J^2 + \sigma^2 + \frac{4k^2\sigma^4}{e^{2k^2\sigma^2}-1}.
+%\end{align}
+%Hence, the variance to first order in $\phi$ and second order in $k\sigma$ is 
+%\begin{align}
+%	\text{Var}(S) &\approx 3\sigma^2 + J^2,
+%\end{align}
+%which yields an SNR $\mathcal{R}$\
+%\begin{align}
+%	\mathcal{R} &\approx \sqrt{\frac{1}{3\sigma^2 + J^2}}\frac{\phi}{k}.
+%\end{align}
+%Evidently, the contribution of the Gaussian noise can be made arbitrarily small provided $\sigma \gg J$.
+%
+%We now turn our attention to providing an argument for the Fisher information of the distribution \eqref{eq:gaussian noise distribution} having at least this scaling with respect to $\sigma$.  From \eqref{eq:gaussian noise signal moments}, we can see immediately that one choice for an unbiased estimator for $\phi$ would be 
+%\begin{align}
+%	\hat{\phi} &= k\op{S}.
+%\end{align}
+%It directly follows the variance of this estimator is 
+%\begin{align}
+%	\text{Var}(\hat{\phi}) &= k^2 \text{Var}(\op{S}), \nonumber \\
+%	&\approx k^2 (3\sigma^2 + J^2),
+%\end{align}
+%and so the Fisher information must obey the inequality 
+%\begin{align}
+%	\mathcal{I}(\phi) &\ge \frac{1}{k^2 (3\sigma^2 + J^2)},
+%\end{align}
+%which again will have a trivial contribution from the Gaussian noise for $\sigma \gg J$.
+\section{Angular jitter and diffraction}\label{sec:jitter}
+\begin{figure}
+	\includegraphics[scale=.6]{InverseWeakValueNoise/Figures/jitter_setup.pdf}
+	\caption{An optical two-level weak value amplification setup.  Angular jitter noise is modeled by the first mirror which imparts a random momentum shift $q$ to the beam.  The beam then passes through a beam splitter (BS) and acquires a path-dependent phase at the Soleil-Babinet compensator (SBC) with half-wave plate (HWP), and a path-dependent momentum shift $k$ at the titled signal mirror inside the Sagnac interferometer.  Postselected light is measured at the position sensing detector to determine the unknown phase shift $\phi$ imparted by the SBC.  The distance between the source and the symmetric point of the interferometer is $\ell_1$ and the distance between the symmetric point and the position-sensitive detector (PSD) is $\ell_2$.}\label{fig:jitter setup}
+\end{figure}
+We now consider propagation effects (\emph{i.e.} diffraction), and an angular jitter of an optical beam which we model as an additional tilted mirror as in Fig.~\ref{fig:jitter setup}.  We can model the unnormalized state at the detector as 
+\begin{align}\label{eq:jitter state}
+	\ipr{x}{\varphi} &= \bra{x}\op{U}_{\ell_2} \op{U}_{k} \op{U}_\phi \op{U}_{\ell_1} \op{U}_q \ket{\varphi_0},\nonumber \\
+	&= \bra{x} e^{-i\op{p}^2\ell_2/2k_0}\sin(k\op{x} + \phi/2)e^{-i\op{p}^2\ell_1/2k_0}e^{iq\op{x}}\ket{\varphi_0},
+\end{align}
+where $\op{U}_\ell$ is a quadratic phase in momentum space which describes propagation of the beam front by a distance $\ell$, and $\ket{\varphi_0}$ is the initial Gaussian meter state.  If we take the angular jitter to be normally distributed with zero mean and variance $Q^2$, the overall distribution is given by 
+\begin{align}
+	p(x,q|\phi) &= \mathcal{N}\exp\left(\frac{-q^2}{2Q^2}\right)\left|\ipr{x}{\varphi}\right|^2,
+\end{align}   
+where $\mathcal{N}$ is a normalization constant.  Note that in the limit of a collimated beam (\emph{i.e.,} $\ell_1,\ell_2 \rightarrow 0$), the momentum kick $q$ will have no effect on the measured profile as it only appears as an overall phase factor in the wavefunction.  The Fisher information for an estimator of the parameter $\phi$ is then
+\begin{align}
+	\mathcal{I}(\phi) = -\int \text{d}x~ \text{d}q~ p(x,q|\phi)\partial_\phi^2 \ln p(x,q|\phi).
+\end{align}
+This integral is very complicated for the general state \eqref{eq:jitter state}, but becomes tractable with a few simplifying assumptions.  Namely, we expand to linear order in $\phi$ and $k\sigma$ in the inverse weak value regime so that $\phi < k\sigma \ll 1$.  We also expand to linear order in $kQ$, but make no assumption about the relative size of $kQ$ to the other parameters.  Finally, since $\ell_2$ is completely under the experimenter's control, and can be made arbitrarily small, we take $\ell_2=0$.  This yields a per-event Fisher information of 
+\begin{align}
+	\mathcal{I}(\phi) &\approx \frac{4k_0^2}{k^2} \cdot \frac{4k_0^2\sigma^2 + \ell_1^2\left(\frac{1}{\sigma^2} -4Q^2\right)}{\left(\frac{\ell_1^2}{\sigma^2} + 4k_0^2\sigma^2\right)^2}.
+\end{align}
+In the limit of $k_0\sigma \gg \ell_1/\sigma$ and $k_0\sigma \gg \ell_1Q$, this reduces to 
+\begin{align}
+	\mathcal{I}(\phi) &= \frac{1}{k^2\sigma^2},
+\end{align}
+which is simply the inverse of the postselection probability.  Hence, the total Fisher information for $\nu$ independent events becomes 
+\begin{align}
+	\mathcal{I}_\nu(\phi) &= p_F\nu \mathcal{I}(\phi), \nonumber \\
+	&\approx \nu.
+\end{align}
+Amplification in the inverse weak value regime under the effect of angular jitter noise allows for recovery of the full noiseless Fisher information for large beam width $\sigma$, as in the case of additive Gaussian white noise considered in Sec.~\ref{sec:gaussian noise}.  This is confirmed numerically using the full state \eqref{eq:jitter state}, with results shown in Fig.~\ref{fig:jitter plot}.
+
+\begin{figure}
+	\includegraphics[scale=1]{InverseWeakValueNoise/Figures/AngularJitter.pdf}
+	\caption{Fisher information as a function of beam width for two different amplitudes of angular jitter, with $k\sigma$ held at a constant value of $.1$.  The numeric values of the parameters are $\phi=10^{-3}$, $k_0 = 10^5 cm^{-1}$, $\ell_1 = 10^5 cm$, $\ell_2 = 10^2 cm$.  Evidently larger choices of $\sigma$ allow one to overcome angular jitter, even when $k \ll Q$.}\label{fig:jitter plot}
+\end{figure}
+
+\section{Frequency measurements in the inverse weak value regime}\label{sec:frequency}
+It is straightforward to extend the above results for precision phase estimation to frequency estimation.  Here we treat two separate optical frequency measurement schemes which are robust to technical noise.
+
+\subsection{Prism method}
+We can convert the phase measurements above to a frequency shift measurement simply by replacing the SBC and HWP in Fig.~\ref{fig:jitter setup} with a prism.  If we take the optical axis to be the $z$-direction and the momentum shift from the tilted mirror in the $x$-direction, we choose the prism to cause a small frequency dependent momentum shift $k_p(\omega)$ in the $y$-direction.  We will abbreviate this as $k_p$ in what follows for the sake of notational simplicity.  If our detector only measures shifts in the $x$-direction, the effect of the prism will be essentially the same as introducing a frequency dependent phase.  
+
+Before the detector, the two-dimensional distribution becomes
+\begin{align}
+	p(x,y|k_p) &= \frac{1}{p_f} \sin^2\left(kx + k_p y\right)\left|\ipr{x,y}{\varphi}\right|^2,
+\end{align} 
+where $\left|\ipr{x,y}{\varphi}\right|^2$ is an uncorrelated two-dimensional Gaussian distribution with zero mean and the same variance in both directions equal to $\sigma^2$ (\emph{i.e.,}~the covariance matrix for the initial state is proportional to the identity).  To first order in $k_p$ the postselection probability is unchanged from Eq.~\eqref{eq:postselection probability}.  If we are only measuring in the $x$-direction, the distribution becomes
+\begin{align}
+	\nonumber p(x|k_p) &= \int_{-\infty}^{\infty} \text{d}y~p(x,y|k_p), \\
+	&\approx \frac{1}{p_f}\sin^2\left(kx +k_p \sigma \right)\left|\ipr{x}{\varphi}\right|^2.
+\end{align}
+Hence, the above analysis for phase measurements hold for this type of frequency measurement with the change $\phi \rightarrow 2k_p \sigma$, where the factor of two is simply due to our definitions of the relevant interaction Hamiltonians in Sec.~\ref{sec:inverse weak values}.  
+
+The Fisher information per detected event for estimation of the parameter $k_p$ to lowest nonvanishing order in $k\sigma$ is equal to 
+\begin{align}
+	\mathcal{I}(k_p) &\approx \frac{2\sigma^2}{k^2\sigma^2}, 
+\end{align} 
+where the expression is no longer dimensionless since the parameter being estimated is not dimensionless.  The total Fisher information for $\nu$ events is then
+\begin{align}
+	\mathcal{I}_\nu(k_p) &= p_f \nu \mathcal{I}(k_p), \nonumber \\
+	& \approx 2 \sigma^2 \nu .
+\end{align}
+To translate this to a minimum frequency resolution we note that 
+\begin{align}
+	k_p &\approx k_0 \theta, \nonumber \\
+	& \approx k_0 \frac{\partial \theta}{\partial \omega}\Delta \omega,
+\end{align}
+where $k_0$ is the wavenumber, $\Delta \omega$ is the frequency shift relative to some reference frequency, and $\theta$ is the angle of deflection relative to the optical axis.  Since the estimator for $\Delta \omega$ differs from the one for $k_p$ by only a factor, it follows directly the Fisher information is given by 
+\begin{align}
+	\mathcal{I}_\nu(\Delta \omega) &= \left[k_0\frac{\partial \theta}{\partial \omega}\right]^{2}\mathcal{I}_\nu(k_p), \nonumber \\
+	&= 2\left[k_0\sigma\frac{\partial \theta}{\partial \omega}\right]^{2}\nu.
+\end{align}
+Hence, the resolution of a precision frequency measurement can be made large for large $\sigma$ and for large $\partial\theta/\partial\omega$, as is the case for an atomic prism \cite{Starling2012}.
+
+As an example, for a group velocity $v_g/c = 10^{-3}$ (achievable in an atomic prism \cite{Starling2012}), $\sigma = 1$ cm,  $\lambda = 780$ nm, a laser power of 1 mW and an integration time of 1 second, we have a minimum resolvable frequency shift $\Delta \omega \sim 1$ Hz.
+\subsection{Group velocity delay method}
+\begin{figure}
+	\includegraphics[scale=.5]{InverseWeakValueNoise/Figures/displaced_sagnac.pdf}
+	\caption{An alternate geometry for precision frequency or phase measurements using a displaced Sagnac interferometer.  In the case of a frequency measurement a dispersive medium such as a warm rubidium (Rb) vapor must be used.  The blue dotted line represents the clockwise path in the interferometer and the red dashed line represents the counterclockwise path.}\label{fig:displaced sagnac}
+\end{figure}
+To generate a frequency dependent phase shift without introducing an unmeasured shift in the beam as above, we choose a slightly modified experimental geometry shown in Fig.~\ref{fig:displaced sagnac}.  The beam entering the interferometer is displaced from the symmetric axis so the counter-propagating paths do not overlap.  This allows us to place a dispersive medium in only a single path, which we again take to introduce a relative phase $\phi = (n(\omega)-1)k_0 d$ between the paths, where $n(\omega)$ is the frequency dependent index of refraction, $k_0$ is the beam wavenumber in vacuum, and $d$ is the path length through the medium.   
+
+Since the measurement operators in Sec.~\ref{sec:inverse weak values} are unchanged up to meaningless global phase factors, we are able to write the probability distribution as 
+\begin{align}
+	p(x|\omega) &= \frac{1}{p_f}\sin^2\left(kx + \frac{\phi(\omega)}{2}\right)\left|\ipr{x}{\varphi}\right|^2.
+\end{align}
+The Fisher information per detected event for the parameter $\omega$ is then
+\begin{align}
+	\nonumber \mathcal{I}(\omega) &= \frac{1}{p_f}\left[\left(\frac{\partial \phi}{\partial \omega}\right)^2 - e^{-2k^2\sigma^2}\sin(\phi) \frac{\partial^2 \phi}{\partial \omega^2}\right], \\
+	\nonumber &\approx \frac{1}{p_f}\left(\frac{\partial \phi}{\partial \omega}\right)^2, \\
+	\nonumber &= \frac{d^2}{p_f}\left[\frac{1}{v_g} - \frac{1}{c}\right]^2, \\
+	&\approx \frac{\tau_g^2}{p_f},
+\end{align}
+where $v_g \ll c$ is the group velocity in the dispersive medium, and $\tau_g$ represents the time it takes a wave envelope to travel a distance $d$ at the group velocity (the group delay).  
+
+As above, for $\nu$ total input events, we multiply this expression by $p_f \nu$ to get the total Fisher information
+\begin{align}
+	\mathcal{I}_\nu(\omega) &= \nu\tau_g^2.
+\end{align}
+For a warm rubidium vapor, $v_g/c$ can potentially be on the order of $10^{-7}$ \cite{Boyd2001}.  Here we will use a readily achievable value of $10^{-3}$, as in the previous subsection.  With a cell width of 1 cm, $\lambda = 780$ nm, a laser power of 1 mW and an integration time of 1 second, we have a minimum resolvable frequency shift of $\Delta \omega \sim 10^{-1}$ Hz. 
+
+\section{Conclusion}
+As in the weak value regime, precision phase measurements in the inverse weak value regime are robust to several types of technical noise.  In particular, the type of measurements considered here can approach the full noiseless Fisher information under additive Gaussian technical noise and angular jitter noise if one is free to increase the variance $\sigma^2$ of the initial state arbitrarily.  Our results do not crucially rely on a specific experimental geometry, and will generalize well to a wide range of weak value based phase measurements.
+
+Additionally, we have shown that the same techniques used to estimate phase with weak measurements can also be used for frequency estimation, with the same robustness to technical noise.  This type of frequency measurement can be further enhanced by taking advantage of nonlinear effects, \emph{e.g.}~those found in rubidium vapor.
+
+%\section{Acknowledgments}
+%This work was supported by DRS Technologies and Army Research Office Grant No. W911NF-13-1-0402. 
