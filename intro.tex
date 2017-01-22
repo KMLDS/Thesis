@@ -1,0 +1,38 @@
+\chapter{Introduction}
+Occasionally in physics we are interested in measuring extremely small quantities.  If we are interested in pushing the limits of just how small an effect we would like to be able to measure, physics and mathematical statistics will place fundamental constraints on what can be accomplished.
+
+To provide a motivating example which we will discuss at length over the course of this thesis, let's imagine an optical experiment measuring the tilt of a mirror simply by shining a laser source on the mirror and measuring the beam with a position sensing detector.  If we first consider the case where this experiment is performed under ideal conditions with no noise and a perfect detector, there are still limits on the minimum resolvable tilt.  Quantum mechanics imposes some uncertainty in the position distribution of photons coming from the source.  If the detector is composed of individual pixels, some information carried by the photons will be lost compared to the case of true continuous resolution.
+
+As we will discuss further in this introductory chapter, the problem of finding the minimum resolvable tilt in this experiment is fully determined by the probability distribution of photons coming from the source, and a physical understanding of the parametric form the magnitude of the mirror tilt will have on the distribution.  Once that is known, it is straightforward to come up with a way to estimate the mirror tilt given some experimental data, and to determine the approximate error of that estimate.
+
+Of course, no experiment can actually be carried out under noiseless conditions with perfect detectors.  On top of the quantum uncertainty discussed above, there will be a number of sources of technical noise.  In the simple mirror tilt experiment for instance, we would be likely to experience shifts in any of the experimental components due to vibrations, shifts in the beam due to turbulence, or electronic noise in the detector, to name a few.  With that in mind, it is also important to consider how robust a given measurement is to technical noise, and if there are ways to make it more robust to this noise.  As we will discuss throughout this work, a technique known as weak value amplification 
+
+
+\section{Some useful preliminaries}
+In this section we will very briefly cover useful physical and statistical techniques that will be used throughout this work.
+\subsection{Weak values}
+In a typical quantum measurement scheme, we have some quantum system of interest which we entangle with a pointer which is measured at a detector.  We take $\op{A}$ to be a some system quantum variable, and $\op{x}$ to be a pointer quantum variable.  For simplicity, we also take the initial state of the system and pointer to be pure, \emph{i.e.,}
+\begin{align}
+  \ket{\Psi_0} &= \ket{\psi_0} \otimes \ket{\varphi_0}.
+\end{align}
+Finally, the interaction Hamiltonian combining the system and meter is given by
+\begin{align}
+  \op{H} &= \epsilon \op{A} \otimes \op{x},
+\end{align}
+which modifies the state as
+\begin{align}
+  \ket{\Psi} &= \op{U}\ket{\Psi_0}
+  &= \exp\left(-i\epsilon \op{A} \otimes \op{x} \right) \ket{\Psi_0}.
+\end{align}
+Here we are restricting our discussion to initial product states and time independent Hamiltonians for clarity in this short introduction.  It is straightforward to remove either restriction, and doing so doesn't change anything fundamental about our discussion of quantum measurements and weak values.
+
+In most cases, we imagine the experimenter makes a direct measurement on the pointer state after this interaction takes place.  In a weak value measurement however, an intermediate step is taken first.  We make a measurement on the system state, in a process called postselection.  That is, we choose a postselection state $\ket{\psi_{ps}}$, and make a projective measurement on the state $\ket{\Psi}$,
+\begin{align}
+ \frac{\pr{\psi_{ps}}}{\ipr{\psi_{ps}}{\psi_0}} \ket{\Psi} &= \frac{\bra{\psi_{ps}}\op{U}}{}
+\end{align}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:
