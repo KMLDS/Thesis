@@ -21,17 +21,88 @@ Finally, the interaction Hamiltonian combining the system and meter is given by
 \end{align}
 which modifies the state as
 \begin{align}
-  \ket{\Psi} &= \op{U}\ket{\Psi_0}
-  &= \exp\left(-i\epsilon \op{A} \otimes \op{x} \right) \ket{\Psi_0}.
+\nonumber  \ket{\Psi} &= \op{U}\ket{\Psi_0}, \\
+                      &= \exp\left(-i\epsilon \op{A} \otimes \op{x} \right) \ket{\Psi_0}.
 \end{align}
 Here we are restricting our discussion to initial product states and time independent Hamiltonians for clarity in this short introduction.  It is straightforward to remove either restriction, and doing so doesn't change anything fundamental about our discussion of quantum measurements and weak values.
 
 In most cases, we imagine the experimenter makes a direct measurement on the pointer state after this interaction takes place.  In a weak value measurement however, an intermediate step is taken first.  We make a measurement on the system state, in a process called postselection.  That is, we choose a postselection state $\ket{\psi_{ps}}$, and make a projective measurement on the state $\ket{\Psi}$,
-\begin{align}
- \frac{\pr{\psi_{ps}}}{\ipr{\psi_{ps}}{\psi_0}} \ket{\Psi} &= \frac{\bra{\psi_{ps}}\op{U}}{}
+\begin{align}\label{eq:postselection state}
+  \nonumber \frac{\pr{\psi_{ps}}}{\ipr{\psi_{ps}}{\psi_0}} \ket{\Psi} &= \frac{\bra{\psi_{ps}}\op{U}\ket{\psi_0}}{\ipr{\psi_{ps}}{\psi_0}}\ket{\psi_{ps}} \otimes \ket{\varphi_0}, \\
+                                                                      &= \left(1 - i\epsilon A_w \op{x} + ...  \right)\ket{\psi_{ps}} \otimes \ket{\varphi_0},
 \end{align}
+where $A_w$ is the so-called ``weak value'' given by
+\begin{align}
+  A_w &= \frac{\bra{\psi_{ps}}\op{A}\ket{\psi_0}}{\ipr{\psi_{ps}}{\psi_0}}.
+\end{align}
+We have truncated the expansion \eqref{eq:postselection state} to first order in $\epsilon$ for clarity only, the weak value effect is still well defined even if higher order terms are not small.  Throughout this work we will be principally concerned with very small effects, and this first order approximation is well justified for our systems of interest.  The shift in the average value of the pointer variable is then
+\begin{align}
+  \bra{\Psi_0}\op{X}\ket{\Psi_0} - \bra{\Psi_{ps}}\op{X}\ket{\Psi_{ps}} &= 2i\epsilon \Im{A_w} \bra{\varphi_0}\op{X}^2\ket{\varphi_0} + ...
+\end{align}
+In the limit of very small $\ipr{\psi_{ps}}{\psi_0}$, the weak value can be made arbitrarily large, and so this pointer shift can be made very large as well.  Note however that $|\ipr{\psi_{ps}}{\psi_0}|^2$ gives the postselection probability (i.e.~the probability of a given event being postselected), so fewer probes make it to the detector for larger pointer shifts.  As we will discuss in later chapters, this is the essential tradeoff in weak value measurements, and it actually prevents weak value measurements from exceeding the sensitivity of other types of measurements in the absence of noise.
 
+Despite this, weak values have proven remarkably effective in a number of experiments to date.  This is primarily due to weak value measurements being robust to many commonly encountered forms of techincal noise.  We have also showed theoretically that weak value measurements can be ``recycled'' to allow probes which fail postselection to be reused, in principle allowing all probes to be eventually recycled.  This effect has been recently demonstrated experimentally.
 
+\subsection{Statistical methods}
+\subsubsection{Signal to noise ratio}
+The simplest statistic we will use in this work is the signal to noise ratio $\mathcal{R}$.  If we have some experimental data $\{X_1, X_2,..., X_n\}$, the signal to noise is given by
+\begin{align}
+  \nonumber  \mathcal{R} &= \frac{\mean{X}}{\sqrt{\var{X}}}, \\
+                         &\approx \frac{\mean{X}}{\sqrt{\mean{X^2}}}, 
+\end{align}
+where $\mean{X}$ is assumed to be very close to zero due to the smallness of the parameter we are making inferences about.  We then make the argument that $\mean{X} \sim \sqrt{\var{X}}$ sets the minimum resolvable signal, i.e.~$x_{min} \approx \sqrt{\var{X}}$.  
+
+Note this metric is closely related to Student's $t$ statistic commonly used by statisticians,
+\begin{align}
+  t = \frac{\mean{X} - \mu}{\sqrt{S_n}/n},
+\end{align}
+where $\mean{X}$ is the sample mean, $\mu$ is the population mean, and $S_n$ is the sample variance.  In most cases we cannot know the population mean $\mu$, so $\mathcal{R}$ will follow a $t$ distribution shifted by some unknown amount and scaled by the number of events.  This is useful for hypothesis testing, \emph{e.g.~}if we wanted to test whether the true population mean is zero.  The unknown shift limits the usefulness of signal to noise for making formal statements about the estimates of the parameter.  It still finds widespread use however in the literature due to being an intuititive estimator that usually has reliable performance for reason we will discuss in the next section.  
+
+\subsubsection{Parameter estimation}
+Typically in a precision measurement of a physical quantity, we are able to fully determine the parametric form of the sampling distribution of our data from physical first principles.  This makes precision physical measurements an ideal use case for the statistical method of maximum likelihood estimation.  Again having some data $\{X_1, X_2,..., X_n\}$, the likelihood function is defined as
+\begin{align}\label{eq:likelihood function}
+  L(\theta) = \prod^n_i p(X=x_i|\theta),
+\end{align}
+where $\theta$ is the parameter of interest in the single parameter case, or a vector of parameters in the multivariate case.  We will restrict our attention to the univariate case throughout this work.  Note that the likelihood function is defined in terms of fixed data, and has only functional dependence on the parameter $\theta$.
+
+To obtain a maximum likelihood estimate (MLE), we simply take a derivative of the likelihood function with respect to $\theta$ and set it equal to zero.  Solving the resulting equation provides the maximum likelihood estimate.  Since it is cumbersome to solve $\partial L/ \partial \theta = 0$ in most cases of interest, it is much more common to work with the log-likelihood,
+\begin{align}
+\nonumber  \ell(\theta) &= \log L(\theta), \\
+                        &=  \sum^n_i  \log p(X=x_i|\theta),
+\end{align}
+which has the same argmax as \eqref{eq:likelihood function} since $\log(x)$ is a monotonically increasing function of $x$.
+
+The maximum likelihood estimator provides a very useful way to estimate the value of some parameter.  It is also possible in this framework to get reliable estimates of the expected errors of the estimators.  To begin, we will introduce a quantity known as Fisher information,
+\begin{align}
+\nonumber  \mathcal{I}(\theta) &= -\mathbb{E}\left[\partial^2_\theta \ln p(x|\theta)\right], \\
+                               &= -\int \text{d}x~ p(x|\theta)\partial^2_\theta \ln p(x|\theta).
+\end{align}
+For any unbiased estimator $\hat{\theta}$ (\emph{i.e.~} $\mathbb{E}[\hat{\theta}] = \theta$), the variance of the estimator obeys the Cram\'{e}r-Rao lower bound,
+\begin{align}
+  \var{\hat{\theta}} \ge \frac{1}{\mathcal{I}(\theta)}.
+\end{align}
+If a given estimator saturates the inequality it is said to be ``efficient''.  Most maximum likelihood estimators we will encounter are efficient, and even in cases where they are not, the Cram\'{e}r-Rao inequality gives a good approximate value of the variance.  This in turn allows for a straightforward way to construct confidence intervals or make signal-to-noise type arguments like $\theta_{min} \sim \mathcal{I}(\theta)^{-1/2}$.
+
+\subsubsection{A simple example}
+It is helpful to consider a maximum likelihood estimation example to clarify why it is useful in practice.  Say we have calculated the distribution of an optical beam just before a position sensing detector will be of the form
+\begin{align}
+  p(x|\theta) &= \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{(x-\theta)^2}{2} \right),
+\end{align}
+where $\theta$ is an unknown displacement of the beam and we are working in units where the variance in position of the beam is one.
+
+If $n$ photons are measured at positions $x_i$, the log-likelihood is given by
+\begin{align}
+  \ell(\theta) &= -\sum_i^n \frac{(x_i - \theta)}{2} + \text{const}.
+\end{align}
+To find the maximum likelihood estimator we take the derivative of this expression with respect to $\theta$ and set it equal to zero,
+\begin{align}
+\nonumber  \frac{\partial \ell}{\partial \theta} &= \sum_i^n (x_i - \theta), \\
+\end{align}
+which yields
+\begin{align}
+  \hat{\theta} &= \frac{1}{n}\sum_i^n x_i.
+\end{align}
+That is, the maximum likelihood estimate of $\theta$ is equal to the sample average of our data.  We note 
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "main"
