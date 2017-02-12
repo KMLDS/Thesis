@@ -1,4 +1,5 @@
 \chapter{Introduction}
+\pagestyle{fancy}
 Occasionally in physics we are interested in measuring extremely small quantities.  If we are interested in pushing the limits of just how small an effect we would like to be able to measure, physics and mathematical statistics will place fundamental constraints on what can be accomplished.
 
 To provide a motivating example which we will discuss at length over the course of this thesis, let's imagine an optical experiment measuring the tilt of a mirror simply by shining a laser source on the mirror and measuring the beam with a position sensing detector.  If we first consider the case where this experiment is performed under ideal conditions with no noise and a perfect detector, there are still limits on the minimum resolvable tilt.  Quantum mechanics imposes some uncertainty in the position distribution of photons coming from the source.  If the detector is composed of individual pixels, some information carried by the photons will be lost compared to the case of true continuous resolution.
@@ -8,9 +9,7 @@ As we will discuss further in this introductory chapter, the problem of finding 
 Of course, no experiment can actually be carried out under noiseless conditions with perfect detectors.  On top of the quantum uncertainty discussed above, there will be a number of sources of technical noise.  In the simple mirror tilt experiment for instance, we would be likely to experience shifts in any of the experimental components due to vibrations, shifts in the beam due to turbulence, or electronic noise in the detector, to name a few.  With that in mind, it is also important to consider how robust a given measurement is to technical noise, and if there are ways to make it more robust to this noise.  As we will discuss throughout this work, a technique known as weak value amplification 
 
 
-\section{Some useful preliminaries}
-In this section we will very briefly cover useful physical and statistical techniques that will be used throughout this work.
-\subsection{Weak values}
+\section{Weak values}
 In a typical quantum measurement scheme, we have some quantum system of interest which we entangle with a pointer which is measured at a detector.  We take $\op{A}$ to be a some system quantum variable, and $\op{x}$ to be a pointer quantum variable.  For simplicity, we also take the initial state of the system and pointer to be pure, \emph{i.e.,}
 \begin{align}
   \ket{\Psi_0} &= \ket{\psi_0} \otimes \ket{\varphi_0}.
@@ -43,8 +42,11 @@ In the limit of very small $\ipr{\psi_{ps}}{\psi_0}$, the weak value can be made
 
 Despite this, weak values have proven remarkably effective in a number of experiments to date.  This is primarily due to weak value measurements being robust to many commonly encountered forms of techincal noise.  We have also showed theoretically that weak value measurements can be ``recycled'' to allow probes which fail postselection to be reused, in principle allowing all probes to be eventually recycled.  This effect has been recently demonstrated experimentally.
 
-\subsection{Statistical methods}
-\subsubsection{Signal to noise ratio}
+\section{Squeezed light}
+Sometimes if you squeeze light it is good.
+
+\section{Statistical methods}
+\subsection{Signal to noise ratio}
 The simplest statistic we will use in this work is the signal to noise ratio $\mathcal{R}$.  If we have some experimental data $\{X_1, X_2,..., X_n\}$, the signal to noise is given by
 \begin{align}
   \nonumber  \mathcal{R} &= \frac{\mean{X}}{\sqrt{\var{X}}}, \\
@@ -58,7 +60,7 @@ Note this metric is closely related to Student's $t$ statistic commonly used by 
 \end{align}
 where $\mean{X}$ is the sample mean, $\mu$ is the population mean, and $S_n$ is the sample variance.  In most cases we cannot know the population mean $\mu$, so $\mathcal{R}$ will follow a $t$ distribution shifted by some unknown amount and scaled by the number of events.  This is useful for hypothesis testing, \emph{e.g.~}if we wanted to test whether the true population mean is zero.  The unknown shift limits the usefulness of signal to noise for making formal statements about the estimates of the parameter.  It still finds widespread use however in the literature due to being an intuititive estimator that usually has reliable performance for reason we will discuss in the next section.  
 
-\subsubsection{Parameter estimation}
+\subsection{Parameter estimation}
 Typically in a precision measurement of a physical quantity, we are able to fully determine the parametric form of the sampling distribution of our data from physical first principles.  This makes precision physical measurements an ideal use case for the statistical method of maximum likelihood estimation.  Again having some data $\{X_1, X_2,..., X_n\}$, the likelihood function is defined as
 \begin{align}\label{eq:likelihood function}
   L(\theta) = \prod^n_i p(X=x_i|\theta),
@@ -83,7 +85,7 @@ For any unbiased estimator $\hat{\theta}$ (\emph{i.e.~} $\mathbb{E}[\hat{\theta}
 \end{align}
 If a given estimator saturates the inequality it is said to be ``efficient''.  Most maximum likelihood estimators we will encounter are efficient, and even in cases where they are not, the Cram\'{e}r-Rao inequality gives a good approximate value of the variance.  This in turn allows for a straightforward way to construct confidence intervals or make signal-to-noise type arguments like $\theta_{min} \sim \mathcal{I}(\theta)^{-1/2}$.
 
-\subsubsection{A simple example}
+\subsection{A simple example}
 It is helpful to consider a maximum likelihood estimation example to clarify why it is useful in practice.  Say we have calculated the distribution of an optical beam just before a position sensing detector will be of the form
 \begin{align}
   p(x|\theta) &= \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{(x-\theta)^2}{2} \right),
@@ -102,8 +104,12 @@ which yields
 \begin{align}
   \hat{\theta} &= \frac{1}{n}\sum_i^n x_i.
 \end{align}
-That is, the maximum likelihood estimate of $\theta$ is equal to the sample average of our data.  We note 
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "main"
-%%% End:
+That is, the maximum likelihood estimate of $\theta$ is equal to the sample average of our data.  To obtain the variance in the estimator we simply calculate the Fisher information
+\begin{align}
+\nonumber  \mathcal{I}(\theta) &= -\int_{-\infty}^{\infty}\text{d}x~ p(x|\theta) \partial_\theta^2  p(x|\theta), \\
+\nonumber                      &= \int_{-\infty}^{\infty}\text{d}x~ p(x|\theta), \\
+                               &= 1.
+\end{align}
+Hence, the Fisher information is equal to the inverse spatial variance (also numerically equal to the variance in this case) of the beam at the detector.  This tells us the minimum resolvable parameter is approximately given by $\theta_{min} \sim 1$ and an approximate 95\% confidence interval is given by $(\mean{X} - 2, \mean{X} + 2)$.
+
+

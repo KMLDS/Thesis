@@ -9,11 +9,15 @@
 \date{\today}
 \maketitle
 
+\pagenumbering{roman}
 \tableofcontents
-\input{intro}
+\pagestyle{empty} % is restored to fancy under the chapter heading of intro.tex
+\pagenumbering{arabic}
+\input{Intro/intro}
 \input{PulsedRecycling/recycled}
 \input{CWRecycling/cw_recycling}
 \input{InverseWeakValueNoise/iwv_noise}
+\input{SqueezedLight/squeezed}
 \input{Biphotons/biphotons}
 
 \bibliographystyle{plainnat}

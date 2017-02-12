@@ -8,6 +8,13 @@
 \usepackage{natbib}
 %\usepackage{chapterbib}
 \usepackage{appendix}
+\usepackage{fancyhdr}
+
+% move page numbering to topx
+\fancyfoot{} % clear all footer fields
+\fancyhead{}
+\fancyhead[RO,LE]{\thepage}
+\fancyhead[LO,RE]{\chaptername~\thechapter}
 
 % Macros for rendering useful physics symbols
 
@@ -64,3 +71,8 @@
 \global\long\def\sk{\sum_{k=1}^{n}}
 \global\long\def\ic{\mathcal{I}_{C}}
 \global\long\def\rk{\gamma_{k}}
+
+% macros from squeezing notes
+\newcommand{\creation}[2]{\op{#1}^\dagger_{#2}}
+\newcommand{\annihilation}[2]{\op{#1}_{#2}}
+\newcommand{\numberop}[2]{\creation{#1}{#2}\annihilation{#1}{#2}}
