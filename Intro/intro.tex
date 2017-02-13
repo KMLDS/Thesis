@@ -6,8 +6,11 @@ To provide a motivating example which we will discuss at length over the course 
 
 As we will discuss further in this introductory chapter, the problem of finding the minimum resolvable tilt in this experiment is fully determined by the probability distribution of photons coming from the source, and a physical understanding of the parametric form the magnitude of the mirror tilt will have on the distribution.  Once that is known, it is straightforward to come up with a way to estimate the mirror tilt given some experimental data, and to determine the approximate error of that estimate.
 
-Of course, no experiment can actually be carried out under noiseless conditions with perfect detectors.  On top of the quantum uncertainty discussed above, there will be a number of sources of technical noise.  In the simple mirror tilt experiment for instance, we would be likely to experience shifts in any of the experimental components due to vibrations, shifts in the beam due to turbulence, or electronic noise in the detector, to name a few.  With that in mind, it is also important to consider how robust a given measurement is to technical noise, and if there are ways to make it more robust to this noise.  As we will discuss throughout this work, a technique known as weak value amplification 
+Of course, no experiment can actually be carried out under noiseless conditions with perfect detectors.  On top of the quantum uncertainty discussed above, there will be a number of sources of technical noise.  In the simple mirror tilt experiment for instance, we would be likely to experience shifts in any of the experimental components due to vibrations, shifts in the beam due to turbulence, or electronic noise in the detector, to name a few.  With that in mind, it is also important to consider how robust a given measurement is to technical noise, and if there are ways to make it more robust to this noise.  As we will discuss throughout this work, a technique known as weak value amplification has proven capable of mitigating many forms of technical noise.  This has been examined in detail both theoretically and experimentally since the discovery of weak values by Aharonov, Albert, and Vaidman in 1988.
 
+Another method of countering noise developed over the past several decades involves the use of nonclassical states of light.  There are numerous different nonclassical states capable of reducing the quantum uncertainty in some variable of interest, however the most prominent of these are the so-called squeezed states.  These allow the experimenter to decrease the variance in some variable at the expense of an increase in variance of the conjugate variable.  Squeezed states have been primarily considered in precision phase measurements, and in gravitational wave detection in particular.  They have been used to great effect in precision spatial measurements as well, which we will focus on heavily in this work. 
+
+In the remainder of this introductory chapter we will briefly discuss several physical and statistical methods and techniques that will be useful throughout the rest of the work.  This includes weak values, squeezed states of light, maximum likelihood estimation, and the Cram\'{e}r-Rao lower bound.  In chapter \ref{ch:pulsed}, we will discuss an enhancement to weak value amplification which recycles pulses of light to allow greatly improved measurement statistics.  This method is indeed an improvement, but requires precision electronics and active optics to function.  In chapter \ref{ch:cw}, this weakness is remedied by using a continuous wave recycling scheme which is entirely passive and actually allows for a larger enhancement over plain weak values than the active scheme.  In chapter \ref{ch:iwv}, we analyze the robustness of weak values to several types of technical noise and compare with more traditional approaches.  In chapter \ref{ch:squeezed} we analyze a squeezed light scheme which combines nonclassical light and weak values.  This shows that the two are not mutually exclusive, and it is in fact possible to mitigate the effects of technical noise and quantum uncertainty simultaneously.  Finally, in chapter \ref{ch:biphotons} we discuss an alternative optical displacement measurement using correlated biphoton pairs.  We show that even if the uncertainty in the individual photons is large, it is possible to make the uncertainty in the sum of the positions of the two photons small, which in turn can be used to improve measurement sensitivity.  
 
 \section{Weak values}
 In a typical quantum measurement scheme, we have some quantum system of interest which we entangle with a pointer which is measured at a detector.  We take $\op{A}$ to be a some system quantum variable, and $\op{x}$ to be a pointer quantum variable.  For simplicity, we also take the initial state of the system and pointer to be pure, \emph{i.e.,}
@@ -36,17 +39,47 @@ where $A_w$ is the so-called ``weak value'' given by
 \end{align}
 We have truncated the expansion \eqref{eq:postselection state} to first order in $\epsilon$ for clarity only, the weak value effect is still well defined even if higher order terms are not small.  Throughout this work we will be principally concerned with very small effects, and this first order approximation is well justified for our systems of interest.  The shift in the average value of the pointer variable is then
 \begin{align}
-  \bra{\Psi_0}\op{X}\ket{\Psi_0} - \bra{\Psi_{ps}}\op{X}\ket{\Psi_{ps}} &= 2i\epsilon \Im{A_w} \bra{\varphi_0}\op{X}^2\ket{\varphi_0} + ...
+  \bra{\Psi_0}\op{X}\ket{\Psi_0} - \bra{\Psi_{ps}}\op{X}\ket{\Psi_{ps}} &= 2i\epsilon ~\text{Im}{A_w} \bra{\varphi_0}\op{X}^2\ket{\varphi_0} + ...
 \end{align}
 In the limit of very small $\ipr{\psi_{ps}}{\psi_0}$, the weak value can be made arbitrarily large, and so this pointer shift can be made very large as well.  Note however that $|\ipr{\psi_{ps}}{\psi_0}|^2$ gives the postselection probability (i.e.~the probability of a given event being postselected), so fewer probes make it to the detector for larger pointer shifts.  As we will discuss in later chapters, this is the essential tradeoff in weak value measurements, and it actually prevents weak value measurements from exceeding the sensitivity of other types of measurements in the absence of noise.
 
 Despite this, weak values have proven remarkably effective in a number of experiments to date.  This is primarily due to weak value measurements being robust to many commonly encountered forms of techincal noise.  We have also showed theoretically that weak value measurements can be ``recycled'' to allow probes which fail postselection to be reused, in principle allowing all probes to be eventually recycled.  This effect has been recently demonstrated experimentally.
 
 \section{Squeezed light}
-Sometimes if you squeeze light it is good.
+While weak values are very useful in reducing technical noise, they do not allow one to reduce quantum uncertainty while using classical (\emph{i.e.,} coherent) light.  It is possible to do this however by using nonclassical light.  Here we will treat the specific case of single mode quadrature squeezed light for simplicity, leaving the case of spatial multimode squeezing for chapter~\ref{ch:squeezed} and the case of an alternate choice of nonclassical light in chapter~\ref{ch:biphotons}.
 
-\section{Power recycling}
-Recycling at the gym.
+We begin by defining the so-called ``squeezed vacuum state''
+\begin{align}
+  \ket{\xi} &= \op{S}(\xi)\ket{0},
+\end{align}
+where $\op{S}(\xi)$ is the unitary ``squeeze operator'' defined by
+\begin{align}
+  \op{S}(\xi) &= \exp\left[\frac{1}{2}\left(\xi\creation{a}{}^2 - \xi^{*}\annihilation{a}{}^2 \right) \right].
+\end{align}
+We will now show the field quadratures $\op{X}$ and $\op{Y}$ defined as
+\begin{align}\label{eq:quadratures}
+  \op{X} &= \frac{1}{\sqrt{2}} \left(\annihilation{a}{} + \creation{a}{} \right), \nonumber \\
+  \op{Y} &= \frac{1}{\sqrt{2i}} \left(\annihilation{a}{} - \creation{a}{} \right),
+\end{align}
+can be squeezed, in the sense that the variance of one can be reduced at the cost of raising the variance of the other.
+
+For this task, it is convenient to work with the Bogoliubov transformed operator
+\begin{align}
+  \annihilation{a}{}(\xi) &= \op{S}^\dagger \annihilation{a}{} \op{S}, \nonumber \\
+                          &= \annihilation{a}{} \cosh r + \creation{a}{} e^{i\theta}\sinh r,
+\end{align}
+and the transformed creation operator given by the Hermitian conjugate.  Here $r$ is the real part of the squeeze parameter $\xi$ and $\theta$ is $\arg{\xi}$.  This allows us to convert problems using field variables on the squeezed vacuum state to ones using transformed variables on the vacuum.  As a very simple example,
+\begin{align}
+  \mean{\numberop{a}{}} &= \bra{\xi}\numberop{a}{}\ket{\xi}, \nonumber \\
+                            &= \bra{0}\op{S}^\dagger \creation{a}{} \op{S}\op{S}^\dagger \annihiliation{a}{} \op{S} \ket{0}, \nonumber \\
+                            &= \bra{0}\creation{a}{}(\xi) \annihilation{a}{}(\xi)\ket{0}.
+\end{align}
+Using this method to calculate the first two moments of the quadratures \eqref{eq:quadratures} in the squeezed vacuum state, a somewhat lengthy calculation yields
+\begin{align}
+  \var{\op{X}} &= \frac{1}{2}e^{-2r}, \nonumber \\
+  \var{\op{Y}} &= \frac{1}{2}e^{2r}.
+\end{align}
+Hence, the variance of one quadrature can be made arbitrarily small at the cost of making the variance of the other arbitrarily large.  This effect is not limited to the quadratures of the field however, and we will see a completely analogous variance reduction to spatial measurements of an optical beam in chapter \ref{ch:squeezed}.
 
 \section{Statistical methods}
 \subsection{Signal to noise ratio}
@@ -116,3 +149,8 @@ That is, the maximum likelihood estimate of $\theta$ is equal to the sample aver
 Hence, the Fisher information is equal to the inverse spatial variance (also numerically equal to the variance in this case) of the beam at the detector.  This tells us the minimum resolvable parameter is approximately given by $\theta_{min} \sim 1$ and an approximate 95\% confidence interval is given by $(\mean{X} - 2, \mean{X} + 2)$.
 
 
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

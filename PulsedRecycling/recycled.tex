@@ -1,4 +1,4 @@
-\chapter{Pulsed recycling of a weak value measurement}
+\chapter{Pulsed recycling of a weak value measurement}\label{ch:pulsed}
 
 A long standing goal in optics is the development and improvement of precision optical metrology.  In the first paper on weak values in 1988 \cite{Aharonov1988,*Duck1989}, Aharanov, Albert and Vaidman suggested that the weak value effect might be used as an amplifier in order to measure (in the case they were considering) the value of a small magnetic field by looking at the anomalously large deflection of a beam of atoms traversing a Stern-Gerlach apparatus.  The general validity of this weak value effect was later shown experimentally in an optical context by Ritchie \emph{et al.} \cite{Ritchie1991}, who replaced the magnetic spin with transverse polarization, and Brunner \emph{et al.} \cite{Brunner2003}, who illustrated the pervasiveness of the weak value effect in common optical telecom networks.
 
@@ -371,30 +371,7 @@ Adding a diverging lens with focal length $s_i$ also modifies the initial state 
   \op{U}_\ell\op{U}_L &= e^{-i\op{p}^2\ell/2k_0}e^{ik_0\op{x}^2/2s_i},
 \end{align}
 \end{subequations}
-which can be simplified recursively, as detailed in Appendix~\ref{sec:recursiveappendix}.  The effect of a diverging lens is considered for comparison with the unrecycled experiment in Ref.~\cite{Dixon2009}, where such a lens was able to enhance sensitivity.  
-
-Table~\ref{tab:numericalparameters} shows the parameters which describe the laser and experimental geometry. Our choice of $k_0$ corresponds to the 780-800 nm lasers used in \cite{Dixon2009,Starling2009,Starling2010a,Starling2010b}, and the 3-meter interferometer length $\ell$ is taken from the generous upper bound estimate discussed in Section~\ref{sec:qual} as a worst case scenario for beam divergence effects.  For the weak-value regime of small $k\sigma$ and $\phi$ such that $k\sigma < \phi < 1$, we found that it was more computationally efficient to expand the sine and cosine functions in \eqref{eq:recursiveparts} to second order in $k$ and fourth order in $\phi$, as shown in Appendix~\ref{sec:truncation}.  To test the validity of this truncation, we initially set the interferometer length $\ell$ to zero so that a comparison could be made with the previously calculated collimated solutions.
-
-We restrict our attention to the SNR gains achieved by recycling a single pulse for $r$ traversals, since adding more pulses leads to a simple scaling of the single pulse result. The SNR gains for different choices of initial diverging lens are shown in Fig.~\ref{fig:snrplateaus}, where they are compared to the ideal power-scaling curve that we expect from our qualitative considerations given by \eqref{eq:powergain}.  In all cases, the expected gains roughly follow the qualitative power scaling rule for a large number of traversals before saturating due to the beam growing larger than the finite size of the split-detector.  Note that the beam divergence mitigates the SNR decay that was observed for the collimated case, even without beam stabilization due to flipping or Zeno reshaping.
-
-\section{Conclusion}\label{sec:conclusion}
-By investigating the optical design shown in Fig.~\ref{fig:setup}, we have shown how a single optical pulse can be trapped inside the interferometer until the photons all exit the dark port and are ``post-selected,'' greatly boosting the sensitivity of the precision measurement.  The added power accumulated at the detector within a fixed duration of time is the dominant source of sensitivity gain.  Further increases are achievable by trapping multiple pulses in the interferometer simultaneously.  The number of trapped pulses is limited by the length of the pulses, the gating frequency of current Pockels cells, and the physical size of the interferometer.
-
-We carefully analyzed the case of a collimated beam and showed that repeated post-selections cause a walk-off effect in the recycled pulse, which tends to diminish the SNR.  However, we also showed that these walk-off effects can be easily corrected by Zeno reshaping, or by a parity flip, which reflects the beam around its optic axis on each traversal.  Somewhat surprisingly, the gains with parity correction can even exceed those expected from the power scaling.  Including propagation effects does not destroy the sensitivity gain shown for the collimated case, but instead can produce additional enhancement.  
-
-While these sensitivity gains alone are a substantial improvement over the original idea, the combination of these techniques with other established metrology techniques---such as the use of a squeezed reference beam---could further increase the sensitivity beyond that indicated here.  These considerations have motivated our treatment using quantum operator methods, rather than classical wave optics, even though the latter is an equally valid approach for a coherent laser source.
-
-%\begin{acknowledgments}
-%  We acknowledge support from the US Army Research Office Grants No. 62270PHII: STIR, and No. W911NF-09-0-01417, as well as the National Science Foundation Grant No. DMR-0844899.
-%\end{acknowledgments}
-
-%\bibliographystyle{plainnat}
-%\bibliography{PulsedRecycling/recycled}
-
-%\appendix
-\begin{appendices}
-\section{Recursive Simplification}\label{sec:recursiveappendix}
-Using Equations \eqref{eq:recursivetotal} and \eqref{eq:recursiveparts} from above, an exact recursive simplification can be constructed.  Written explicitly in the momentum basis we have 
+which can be simplified using Equations \eqref{eq:recursivetotal} and \eqref{eq:recursiveparts} from above, an exact recursive simplification can be constructed.  Written explicitly in the momentum basis we have 
 \begin{align}
 \nonumber\op{U}_\ell\op{M}_-\left(\op{U}_\ell^2 \op{M}_+\right)^{r-1} &= \left(\frac{1}{2}\right)^{r}\int\! \mathrm{d}p\ket{p}e^{-i\ell p^2/2k_0} \times \\ &\sum^r_{j=-r}a_j(r,p) e^{ij\phi/2}\bra{p + jk},
 \end{align} 
@@ -416,9 +393,9 @@ with
 \end{align} 
 
 The solution with no initial diverging lens is given by taking limit $s_i \rightarrow \infty$, which modifies Equation~\eqref{eq:exactsolution} with the replacement $\beta \rightarrow \sigma$.  Similarly, setting $\ell = 0$ recovers the collimated solution as expected. 
+.  The effect of a diverging lens is considered for comparison with the unrecycled experiment in Ref.~\cite{Dixon2009}, where such a lens was able to enhance sensitivity.  
 
-\section{Numerical Truncation}\label{sec:truncation}
-Truncating the measurement operators that include propagation effects to second order in $k$ and fourth order in $\phi$ for the weak value regime produces the expressions, 
+Table~\ref{tab:numericalparameters} shows the parameters which describe the laser and experimental geometry. Our choice of $k_0$ corresponds to the 780-800 nm lasers used in \cite{Dixon2009,Starling2009,Starling2010a,Starling2010b}, and the 3-meter interferometer length $\ell$ is taken from the generous upper bound estimate discussed in Section~\ref{sec:qual} as a worst case scenario for beam divergence effects.  For the weak-value regime of small $k\sigma$ and $\phi$ such that $k\sigma < \phi < 1$, we found that it was more computationally efficient to expand the sine and cosine functions in \eqref{eq:recursiveparts} to second order in $k$ and fourth order in $\phi$, in the weak value regime this produces the expressions, 
 \begin{subequations}\label{eq:approximateexpansions}
 \begin{align}
  \op{U}_\ell\op{M}_- &= \int \! \mathrm{d}p\ket{p}e^{-ip^2\ell/2k_0}\, \times \\
@@ -428,6 +405,29 @@ Truncating the measurement operators that include propagation effects to second 
  &\qquad\quad\left. + \frac{k^2}{2}\partial_p^2 - \frac{k^2\phi^2}{16}\partial_p^2\right]\bra{p} . \nonumber
 \end{align}
 \end{subequations}
-These expansions can be numerically iterated more easily than the full solution, using the initial Gaussian profile \eqref{eq:gaussian} as an input.  
-\end{appendices}
+These expansions can be numerically iterated more easily than the full solution, using the initial Gaussian profile \eqref{eq:gaussian} as an input.  To test the validity of this truncation, we initially set the interferometer length $\ell$ to zero so that a comparison could be made with the previously calculated collimated solutions.
 
+We restrict our attention to the SNR gains achieved by recycling a single pulse for $r$ traversals, since adding more pulses leads to a simple scaling of the single pulse result. The SNR gains for different choices of initial diverging lens are shown in Fig.~\ref{fig:snrplateaus}, where they are compared to the ideal power-scaling curve that we expect from our qualitative considerations given by \eqref{eq:powergain}.  In all cases, the expected gains roughly follow the qualitative power scaling rule for a large number of traversals before saturating due to the beam growing larger than the finite size of the split-detector.  Note that the beam divergence mitigates the SNR decay that was observed for the collimated case, even without beam stabilization due to flipping or Zeno reshaping.
+
+\section{Conclusion}\label{sec:conclusion}
+By investigating the optical design shown in Fig.~\ref{fig:setup}, we have shown how a single optical pulse can be trapped inside the interferometer until the photons all exit the dark port and are ``post-selected,'' greatly boosting the sensitivity of the precision measurement.  The added power accumulated at the detector within a fixed duration of time is the dominant source of sensitivity gain.  Further increases are achievable by trapping multiple pulses in the interferometer simultaneously.  The number of trapped pulses is limited by the length of the pulses, the gating frequency of current Pockels cells, and the physical size of the interferometer.
+
+We carefully analyzed the case of a collimated beam and showed that repeated post-selections cause a walk-off effect in the recycled pulse, which tends to diminish the SNR.  However, we also showed that these walk-off effects can be easily corrected by Zeno reshaping, or by a parity flip, which reflects the beam around its optic axis on each traversal.  Somewhat surprisingly, the gains with parity correction can even exceed those expected from the power scaling.  Including propagation effects does not destroy the sensitivity gain shown for the collimated case, but instead can produce additional enhancement.  
+
+While these sensitivity gains alone are a substantial improvement over the original idea, the combination of these techniques with other established metrology techniques---such as the use of a squeezed reference beam---could further increase the sensitivity beyond that indicated here.  These considerations have motivated our treatment using quantum operator methods, rather than classical wave optics, even though the latter is an equally valid approach for a coherent laser source.
+
+%\begin{acknowledgments}
+%  We acknowledge support from the US Army Research Office Grants No. 62270PHII: STIR, and No. W911NF-09-0-01417, as well as the National Science Foundation Grant No. DMR-0844899.
+%\end{acknowledgments}
+
+%\bibliographystyle{plainnat}
+%\bibliography{PulsedRecycling/recycled}
+
+%\appendix
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
