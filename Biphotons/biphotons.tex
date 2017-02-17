@@ -1,4 +1,4 @@
-\chapter{Improving measurement sensitivity through entanglement}\label{ch:biphotons}
+\chapter[Biphoton displacement measurements]{Improving measurement sensitivity through entanglement}\label{ch:biphotons}
 Measurements of the deflection or displacement of optical beams are useful in a wide range of experiments and applications; for example, optical beam deflections enable precision atomic force microscopy measurements with fairly modest experimental equipment \cite{Putnam1992}.  
 In recent years, a variety of these methods have been developed using classical states of light.  
 In particular, a number of schemes utilizing weak value amplification have been successful in measuring optical angular deflections as small as hundreds of femtoradians and linear displacements as small as tens of femtometers \cite{Dixon2009}, and have allowed for ultra-precise measurements to be made in relatively noisy environments \cite{Hosten2008}. 
@@ -39,7 +39,7 @@ In Sec.~\ref{sec:conclusion} we give our concluding remarks.
 
 \begin{figure}
 	\includegraphics[scale=.6]{Biphotons/Figures/setup.pdf}
-	\caption{Schematic for a biphoton displacement measurement.  
+	\caption[Experimental setup for precision displacement measurements using entangled biphoton pairs.]{Schematic for a biphoton displacement measurement.  
 		Photons from a laser source are converted into correlated pairs in a colinear type-II spontaneous parametric down conversion (SPDC) process (\emph{i.e.}, one in which two photons of orthogonal polarization are generated), for example with a BBO crystal.
       	Uncorrelated short wavelength photons (green solid line) are filtered out, while the horizontally polarized (red line) and vertically polarized (blue line) photons pass through to a movable mirror.  
 		The shift $d$ of the mirror from the origin displaces the optical beam, and is the small, unknown parameter being measured with this apparatus.  
@@ -50,11 +50,11 @@ In Sec.~\ref{sec:conclusion} we give our concluding remarks.
 \end{figure}
 
 \begin{figure}
-	\includegraphics[scale=1]{Biphotons/Figures/distribution.pdf}
-	\caption{The probability distribution \eqref{eq:imperfectprofile} as a function of $x_1$ and $x_2$.  
-		Clockwise from the upper left we have increasing correlation with $\epsilon/\sigma=1$, 0.75, 0.5, and 0.1.  
-		As expected, $x_1$ and $x_2$ are increasingly anti-correlated with decreasing $\epsilon$. }
-        \label{fig:distribution}
+    \includegraphics[scale=1]{Biphotons/Figures/distribution.pdf}
+    \caption[Probability distributions of biphoton displacements for different entanglement strengths.]{The probability distribution \eqref{eq:imperfectprofile} as a function of $x_1$ and $x_2$.  
+      Clockwise from the upper left we have increasing correlation with $\epsilon/\sigma=1$, 0.75, 0.5, and 0.1.  
+      As expected, $x_1$ and $x_2$ are increasingly anti-correlated with decreasing $\epsilon$. }
+    \label{fig:distribution}
 \end{figure}
 %\textcolor{red}{(Add the quantum state for the biphoton.)}
 %As a simple, concrete model of a biphoton state exhibiting spatial correlations useful for displacement measurements, we use the joint probability distribution
@@ -345,8 +345,8 @@ For these computations we use a detector width of $10\sigma$, and hence a pixel 
 In general, it is possible to improve the resolution by using non-homogeneous pixel widths, but for simplicity we will not treat that case here. 
 
 \begin{figure}
-	\includegraphics[scale=.9]{Biphotons/Figures/n_pixel_plot.pdf}
-	\caption{A comparison of the Fisher information (in arbitrary units) due to biphoton pairs incident on detectors with different numbers of pixels $N$, using the numerical value $\sigma=1$ and $d=0.05$.
+	\includegraphics[scale=1]{Biphotons/Figures/n_pixel_plot.pdf}
+	\caption[Fisher information for biphoton displacement measurements under detector pixelation.]{A comparison of the Fisher information (in arbitrary units) due to biphoton pairs incident on detectors with different numbers of pixels $N$, using the numerical value $\sigma=1$ and $d=0.05$.
 	For each curve, the information for uncorrelated photons is given by the value of the curve for $\epsilon/\sigma = 1$.  
 	The dotted black line represents perfect spatial resolution calculated by Eq.~\eqref{eq:biphotonFisher},  the solid blue curve represents split-detection ($N=2$), the red dashed curve represents a ten-pixel detector, and the case of fifty pixels is given by the purple dot-dashed curve.
 	}\label{fig:npixels}
@@ -415,7 +415,7 @@ This is fundamentally due to the dependence of the Fisher information on the par
 \subsection{Small $\nu$ scaling}
 \begin{figure}
 \includegraphics[]{Biphotons/Figures/crossover.pdf}
-\caption{The number of events needed to achieve a SNR of 1 under split-detection as a function of the parameter $d$ (in arbitrary units) for different values of $\epsilon/\sigma$.  From top to bottom the curves represent $\epsilon/\sigma = 1$ (\emph{i.e.,} uncorrelated), 0.5, 0.1, 0.05, and 0 (\emph{i.e.,} perfect correlations).  As expected from Eq.~\eqref{eq:heisenberg number}, Heisenberg scaling can only be observed for numbers of events much less than $\sigma/\epsilon$, e.g., the $\epsilon/\sigma = 0.01$ curve only matches the Heisenberg curve for $\nu<\sim 100$. }
+\caption[The number of events needed to detect some minimum resolvable shift in biphoton displacement measurements, for different entanglement strengths.]{The number of events needed to achieve a SNR of 1 under split-detection as a function of the parameter $d$ (in arbitrary units) for different values of $\epsilon/\sigma$.  From top to bottom the curves represent $\epsilon/\sigma = 1$ (\emph{i.e.,} uncorrelated), 0.5, 0.1, 0.05, and 0 (\emph{i.e.,} perfect correlations).  As expected from Eq.~\eqref{eq:heisenberg number}, Heisenberg scaling can only be observed for numbers of events much less than $\sigma/\epsilon$, e.g., the $\epsilon/\sigma = 0.01$ curve only matches the Heisenberg curve for $\nu<\sim 100$. }
 \label{fig:crossover}
 \end{figure}
 In practice, because one cannot physically create a spatial profile which exactly has one photon hit a detector deterministically at one point conditional on the measurement of another entangled photon (\emph{i.e.,} $\epsilon=0$), the preceding analysis with delta function correlations is overly optimistic. 
@@ -461,16 +461,7 @@ Inserting these probabilities into Eq.~\eqref{eq:npixelFisher}, we see immediate
 
 We stress that if one has higher resolution, as can be achieved with more pixels, then the measurement precision can be increased.  Since the perfect detector limit of the entangled biphoton case scales as the standard quantum limit (\ref{eq:efficientdmin}) but with a prefactor of $\epsilon$, we have the following ordering of precision from greatest to least given a fixed number of photons: (1) Standard quantum limit scaling of the biphoton case with a perfect resolution detector, (2) Heisenberg scaling of the biphoton case with a split (2-pixel) detector, (3)  Standard quantum limit scaling of independent photons with a perfect resolution detector, (4)  Standard quantum limit scaling of independent photons with a split (biphoton) resolution detector.  This indicates that the scaling behavior is a secondary consideration to the Fisher information. 
 
-\section{Discussion and Conclusion}\label{sec:conclusion}
-By using spatially entangled biphoton pairs, it is possible to reduce the quantum noise intrinsic to optical metrology schemes.  
-While this is true in the case of split-detection, which is a typical detector setup for optical displacement measurements, we have shown that an even larger benefit can be obtained as one improves spatial resolution.   The ultimate physical limitation for this method is the position uncertainty in the birth zone of the biphoton.  We have also seen that it is possible to change the scaling in precision for split detection measurement between standard quantum limit and Heisenberg if one uses entangled biphotons instead of independent photons for the same mode profile, for relatively small photon number.  
-This advantage comes from the fact that the sum of the biphoton positions is determined more precisely than for uncorrelated photons.
-
-The detection and estimation scheme used in the paper is to count the number of times that the biphoton arrive at the left side, right side or at different sides of the detector and then extract the information of the beam displacement from the counts. We proposed an experiment using coincidence counting and two split detectors to implement this theory. This method is statistically optimal for this experimental setup.  A possible alternative approach is to consider the distribution of each single photon, estimate the displacement from it, and then average the estimates from the two photons. This approach also utilizes the correlation of the entangled photons, since the two estimates are correlated by the photon correlation.  This second approach is analyzed in detail in Appendix A, and we show the estimation precision can also reach the Cram\'er-Rao bound, and therefore matches the precision of split-detection detailed in the main text.  
-
-%\pagebreak\setcounter{equation}{0} \renewcommand{\theequation}{S\arabic{equation}} \onecolumngrid \setcounter{enumiv}{0}
-
-\section*{Appendix A: Estimation from marginal distributions}
+\section{Estimation from marginal distributions}
 
 In this Appendix, we study an alternative approach for estimating the  displacement of biphoton beam using split-detection. We consider the maximum likelihood estimation for the marginal distribution of each photon in a biphoton pair under split-detection and average the two estimates. We show here this procedure can also attain the Cram\'er-Rao bound when the estimates of the marginal distributions are evenly averaged.
 
@@ -640,7 +631,7 @@ the main manuscript. It implies that the optimal precision of split
 detection of biphotons can be attained via estimation from the two
 marginal distributions followed by properly averaging the two estimates.
 
-\section*{Appendix B: Fisher information: quantum vs. classical}
+\section{Fisher information: quantum vs. classical}
 
 In this Appendix, we study when the quantum Fisher information of
 a parameter-dependent state can be achieved by projective measurements.
@@ -693,3 +684,19 @@ Note that $\ei{cd}$ is a global phase of $\kd$ which can be dropped,
 and $\ei{\rk}$ is a phase independent of $d$. Therefore, the quantum
 Fisher information is equal to the classical Fisher information only when the state has no parameter-dependent
 relative phases in the basis of the measurement.
+
+
+\section{Remarks}\label{sec:conclusion}
+By using spatially entangled biphoton pairs, it is possible to reduce the quantum noise intrinsic to optical metrology schemes.  
+While this is true in the case of split-detection, which is a typical detector setup for optical displacement measurements, we have shown that an even larger benefit can be obtained as one improves spatial resolution.   The ultimate physical limitation for this method is the position uncertainty in the birth zone of the biphoton.  We have also seen that it is possible to change the scaling in precision for split detection measurement between standard quantum limit and Heisenberg if one uses entangled biphotons instead of independent photons for the same mode profile, for relatively small photon number.  
+This advantage comes from the fact that the sum of the biphoton positions is determined more precisely than for uncorrelated photons.
+
+The detection and estimation scheme used in the paper is to count the number of times that the biphoton arrive at the left side, right side or at different sides of the detector and then extract the information of the beam displacement from the counts. We proposed an experiment using coincidence counting and two split detectors to implement this theory. This method is statistically optimal for this experimental setup.  A possible alternative approach is to consider the distribution of each single photon, estimate the displacement from it, and then average the estimates from the two photons. This approach also utilizes the correlation of the entangled photons, since the two estimates are correlated by the photon correlation.  We have shown this approach also saturates the Cram\'{e}r-Rao bound, and therefore matches the precision of the split-detection measurement considered here.
+
+%\pagebreak\setcounter{equation}{0} \renewcommand{\theequation}{S\arabic{equation}} \onecolumngrid \setcounter{enumiv}{0}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

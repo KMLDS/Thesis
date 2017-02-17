@@ -1,4 +1,4 @@
-\chapter{Robustness of weak value amplification to technical noise}\label{ch:iwv}
+\chapter[Weak values under noise]{Robustness of weak value amplification to technical noise}\label{ch:iwv}
 In the original work on weak value measurement by Aharonov, Albert, and Vaidman \cite{Aharonov1988}, the authors showed that the shift of a ``meter'' state (\emph{i.e.}~a pointer state), which is entangled with a ``system'' state, can be amplified arbitrarily in some basis at the cost of reducing the probability of detecting a given event due to a process termed postselection.  This amplification led eventually to interest in using weak values for the purpose of precision measurements \cite{Hosten2008,Dixon2009}. 
  
 In recent years, postselected weak measurements have been used to great effect in metrological applications \cite{Dixon2009,Starling2009,Starling2010,Starling2010a,Howell2010,Hogan:11,Egan:12,Strubi2013,Viza:13,Zhou2012,Zhou2013}.  For a more complete overview of both the relevant theory and experiments, see the review article by Dressel \emph{et al.}~\cite{Dressel2014}.  While it is possible for a postselected measurement to achieve higher sensitivity than nonpostselected measurements using quantum pointer states \cite{Pang2014,Pang2015}, the overwhelming majority of experimental work to date has used classical (\emph{i.e.}~coherent) states which can not improve over traditional schemes with postselection in shot-noise limited systems \cite{Pang2015}.
@@ -79,7 +79,7 @@ where the approximation is from expanding to first order in $\phi$ (\emph{i.e.}~
 \section{Uncorrelated gaussian noise}\label{sec:gaussian noise}
 \begin{figure}
 	\includegraphics[]{InverseWeakValueNoise/Figures/gaussianNoisePlot.pdf}
-	\caption{Fisher information for estimation of the parameter $\phi$ under the effect of additive Gaussian white noise, for different noise amplitudes $J$ as a function of the initial state standard deviation $\sigma$.  The product $k\sigma$ is held constant in this plot to keep the postselection probability \eqref{eq:postselection probability} constant.  }
+	\caption[Inverse weak value Fisher information under Gaussian white noise.]{Fisher information for estimation of the parameter $\phi$ under the effect of additive Gaussian white noise, for different noise amplitudes $J$ as a function of the initial state standard deviation $\sigma$.  The product $k\sigma$ is held constant in this plot to keep the postselection probability \eqref{eq:postselection probability} constant.  }
 \end{figure}
 For the case of uncorrelated Gaussian technical noise, such as might be the case with beam jitter in an optical experiment, the measured signal position $s$ will be the sum of a position $x$ drawn from the distribution \eqref{eq: general distribution} and a random displacement $\xi$ drawn from a Gaussian distribution with zero mean and variance $J^2$.  Hence, $s = x + \xi$, and 
 \begin{align}\label{eq:gaussian noise distribution}
@@ -137,7 +137,7 @@ Remarkably, it is possible to approximately recover the full Fisher information 
 \section{Angular jitter and diffraction}\label{sec:jitter}
 \begin{figure}
 	\includegraphics[scale=.6]{InverseWeakValueNoise/Figures/jitter_setup.pdf}
-	\caption{An optical two-level weak value amplification setup.  Angular jitter noise is modeled by the first mirror which imparts a random momentum shift $q$ to the beam.  The beam then passes through a beam splitter (BS) and acquires a path-dependent phase at the Soleil-Babinet compensator (SBC) with half-wave plate (HWP), and a path-dependent momentum shift $k$ at the titled signal mirror inside the Sagnac interferometer.  Postselected light is measured at the position sensing detector to determine the unknown phase shift $\phi$ imparted by the SBC.  The distance between the source and the symmetric point of the interferometer is $\ell_1$ and the distance between the symmetric point and the position-sensitive detector (PSD) is $\ell_2$.}\label{fig:jitter setup}
+	\caption[A weak value amplification setup, modified to account for the possibility of angular jitter noise.]{An optical two-level weak value amplification setup.  Angular jitter noise is modeled by the first mirror which imparts a random momentum shift $q$ to the beam.  The beam then passes through a beam splitter (BS) and acquires a path-dependent phase at the Soleil-Babinet compensator (SBC) with half-wave plate (HWP), and a path-dependent momentum shift $k$ at the titled signal mirror inside the Sagnac interferometer.  Postselected light is measured at the position sensing detector to determine the unknown phase shift $\phi$ imparted by the SBC.  The distance between the source and the symmetric point of the interferometer is $\ell_1$ and the distance between the symmetric point and the position-sensitive detector (PSD) is $\ell_2$.}\label{fig:jitter setup}
 \end{figure}
 We now consider propagation effects (\emph{i.e.} diffraction), and an angular jitter of an optical beam which we model as an additional tilted mirror as in Fig.~\ref{fig:jitter setup}.  We can model the unnormalized state at the detector as 
 \begin{align}\label{eq:jitter state}
@@ -169,7 +169,7 @@ Amplification in the inverse weak value regime under the effect of angular jitte
 
 \begin{figure}
 	\includegraphics[scale=1]{InverseWeakValueNoise/Figures/AngularJitter.pdf}
-	\caption{Fisher information as a function of beam width for two different amplitudes of angular jitter, with $k\sigma$ held at a constant value of $.1$.  The numeric values of the parameters are $\phi=10^{-3}$, $k_0 = 10^5 cm^{-1}$, $\ell_1 = 10^5 cm$, $\ell_2 = 10^2 cm$.  Evidently larger choices of $\sigma$ allow one to overcome angular jitter, even when $k \ll Q$.}\label{fig:jitter plot}
+	\caption[Fisher information of an inverse weak value measurement under angular jitter noise.]{Fisher information as a function of beam width for two different amplitudes of angular jitter, with $k\sigma$ held at a constant value of $.1$.  The numeric values of the parameters are $\phi=10^{-3}$, $k_0 = 10^5 cm^{-1}$, $\ell_1 = 10^5 cm$, $\ell_2 = 10^2 cm$.  Evidently larger choices of $\sigma$ allow one to overcome angular jitter, even when $k \ll Q$.}\label{fig:jitter plot}
 \end{figure}
 
 \section{Frequency measurements in the inverse weak value regime}\label{sec:frequency}
@@ -237,10 +237,15 @@ As above, for $\nu$ total input events, we multiply this expression by $p_f \nu$
 \end{align}
 For a warm rubidium vapor, $v_g/c$ can potentially be on the order of $10^{-7}$ \cite{Boyd2001}.  Here we will use a readily achievable value of $10^{-3}$, as in the previous subsection.  With a cell width of 1 cm, $\lambda = 780$ nm, a laser power of 1 mW and an integration time of 1 second, we have a minimum resolvable frequency shift of $\Delta \omega \sim 10^{-1}$ Hz. 
 
-\section{Conclusion}
+\section{Remarks}
 As in the weak value regime, precision phase measurements in the inverse weak value regime are robust to several types of technical noise.  In particular, the type of measurements considered here can approach the full noiseless Fisher information under additive Gaussian technical noise and angular jitter noise if one is free to increase the variance $\sigma^2$ of the initial state arbitrarily.  Our results do not crucially rely on a specific experimental geometry, and will generalize well to a wide range of weak value based phase measurements.
 
 Additionally, we have shown that the same techniques used to estimate phase with weak measurements can also be used for frequency estimation, with the same robustness to technical noise.  This type of frequency measurement can be further enhanced by taking advantage of nonlinear effects, \emph{e.g.}~those found in rubidium vapor.
 
 %\section{Acknowledgments}
 %This work was supported by DRS Technologies and Army Research Office Grant No. W911NF-13-1-0402. 
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

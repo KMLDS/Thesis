@@ -1,19 +1,23 @@
-\documentclass[]{report}
+\documentclass[12pt,twoside]{report}
 
 \usepackage{URThesis}
-
+\pagestyle{fancyplain}
 \begin{document}
 
-\title{Precision measurements using weak values and nonclassical states}
-\author{Kevin Lyons}
-\date{\today}
-\maketitle
-\abstract{taco taco taco}
+\input{titlepage}
+
 
 \pagenumbering{roman}
 \tableofcontents
-\pagestyle{empty} % is restored to fancy under the chapter heading of intro.tex
+\clearemptydoublepage
+\listoftables
+\listoffigures
+\clearemptydoublepage
+
+% \pagestyle{empty} % is restored to fancy under the chapter heading of intro.tex
+
 \pagenumbering{arabic}
+
 \input{Intro/intro}
 \input{PulsedRecycling/recycled}
 \input{CWRecycling/cw_recycling}
