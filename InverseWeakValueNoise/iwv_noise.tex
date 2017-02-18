@@ -1,9 +1,10 @@
 \chapter[Weak values under noise]{Robustness of weak value amplification to technical noise}\label{ch:iwv}
 In the original work on weak value measurement by Aharonov, Albert, and Vaidman \cite{Aharonov1988}, the authors showed that the shift of a ``meter'' state (\emph{i.e.}~a pointer state), which is entangled with a ``system'' state, can be amplified arbitrarily in some basis at the cost of reducing the probability of detecting a given event due to a process termed postselection.  This amplification led eventually to interest in using weak values for the purpose of precision measurements \cite{Hosten2008,Dixon2009}. 
  
-In recent years, postselected weak measurements have been used to great effect in metrological applications \cite{Dixon2009,Starling2009,Starling2010,Starling2010a,Howell2010,Hogan:11,Egan:12,Strubi2013,Viza:13,Zhou2012,Zhou2013}.  For a more complete overview of both the relevant theory and experiments, see the review article by Dressel \emph{et al.}~\cite{Dressel2014}.  While it is possible for a postselected measurement to achieve higher sensitivity than nonpostselected measurements using quantum pointer states \cite{Pang2014,Pang2015}, the overwhelming majority of experimental work to date has used classical (\emph{i.e.}~coherent) states which can not improve over traditional schemes with postselection in shot-noise limited systems \cite{Pang2015}.
+In recent years, postselected weak measurements have been used to great effect in metrological applications \cite{Dixon2009,Starling2009,Starling2010,Starling2010a,Howell2010,Hogan:11,Pfeifer:11,Egan:12,PhysRevLett.109.013901,Zhou2012,Strubi2013,Viza:13,PhysRevLettv111p033604,Zhou2013,PhysRevLett.112.200401,PhysRevA.89.012126,salazar2015enhancement}.  For a more complete overview of both the relevant theory and experiments, see the review article by Dressel \emph{et al.}~\cite{Dressel2014}.  There has been recent theoretical work 
+examining the use of quantum optical resources in the meter degree of freedom which shows that it is possible for a postselected measurement to achieve higher sensitivity than non-postselected measurements \cite{Pang2014,Pang2015}.  However, the overwhelming majority of experimental work to date has used classical (\emph{i.e.}~coherent) states which can not improve over traditional schemes with postselection in ideal, shot-noise limited systems \cite{Pang2015}.
 
-The principal reason weak measurements have improved sensitivity is that they allow certain types of technical and systematic noise to be overcome, while still achieving the same sensitivity as ideal  traditional measurement schemes \cite{Starling2009,Jordan2014,Knee2014,Pang2016}.  Previous theoretical work demonstrating the effectiveness of weak value amplification in reducing the negative effects of technical noise has been in what we term the \emph{weak value regime}.  Namely, a small but known phase parameter is used in the system to amplify a very small and unknown interaction parameter (\emph{i.e.,}~one coupling system and meter quantum dynamical variables).  
+The principal reason weak measurements have improved sensitivity is that they allow certain types of technical  noise or other experimental limitations to be overcome, while still achieving the same sensitivity as ideal traditional measurement schemes \cite{Starling2009,Jordan2014,Knee2014,viza2015experimentally,PhysRevA.91.062107,torres2016weak,harris2016weak}.  Previous theoretical work demonstrating the effectiveness of weak value amplification in reducing the negative effects of technical noise has been in what we term the \emph{weak value regime}.  Namely, a small but known phase parameter is used in the system to amplify a very small and unknown interaction parameter (\emph{i.e.,}~one coupling system and meter quantum dynamical variables).  It has also been recently proven that in the case of systematic noise on the meter, weak value amplification can suppress this systematic contribution in comparison to a direct measurement method \cite{Pang2016}.  Further improvements in precision can be obtained by recycling the non-selected events \cite{dressel2013strengthening,lyons2015power,byard2015pulse,wang2016experimental}.
 
 In this work we consider the opposite case where we have a small but known interaction parameter which is used to amplify a very small and unknown phase.  We refer to this as the \emph{inverse weak value regime}, following previous work \cite{Starling2010a,Dressel2013,Lyons2015,Kofman2012}. 
 
@@ -78,8 +79,8 @@ where the approximation is from expanding to first order in $\phi$ (\emph{i.e.}~
 
 \section{Uncorrelated gaussian noise}\label{sec:gaussian noise}
 \begin{figure}
-	\includegraphics[]{InverseWeakValueNoise/Figures/gaussianNoisePlot.pdf}
-	\caption[Inverse weak value Fisher information under Gaussian white noise.]{Fisher information for estimation of the parameter $\phi$ under the effect of additive Gaussian white noise, for different noise amplitudes $J$ as a function of the initial state standard deviation $\sigma$.  The product $k\sigma$ is held constant in this plot to keep the postselection probability \eqref{eq:postselection probability} constant.  }
+	\centerline{\centerline{\includegraphics[]{InverseWeakValueNoise/figures/gaussianNoisePlot.pdf}}}
+	\caption{Fisher information for estimation of the parameter $\phi$ under the effect of additive Gaussian white noise, for different noise amplitudes $J$ as a function of the initial state standard deviation $\sigma$.  The product $k\sigma$ is held constant in this plot to keep the postselection probability \eqref{eq:postselection probability} constant.  }
 \end{figure}
 For the case of uncorrelated Gaussian technical noise, such as might be the case with beam jitter in an optical experiment, the measured signal position $s$ will be the sum of a position $x$ drawn from the distribution \eqref{eq: general distribution} and a random displacement $\xi$ drawn from a Gaussian distribution with zero mean and variance $J^2$.  Hence, $s = x + \xi$, and 
 \begin{align}\label{eq:gaussian noise distribution}
@@ -136,10 +137,10 @@ Remarkably, it is possible to approximately recover the full Fisher information 
 %which again will have a trivial contribution from the Gaussian noise for $\sigma \gg J$.
 \section{Angular jitter and diffraction}\label{sec:jitter}
 \begin{figure}
-	\includegraphics[scale=.6]{InverseWeakValueNoise/Figures/jitter_setup.pdf}
-	\caption[A weak value amplification setup, modified to account for the possibility of angular jitter noise.]{An optical two-level weak value amplification setup.  Angular jitter noise is modeled by the first mirror which imparts a random momentum shift $q$ to the beam.  The beam then passes through a beam splitter (BS) and acquires a path-dependent phase at the Soleil-Babinet compensator (SBC) with half-wave plate (HWP), and a path-dependent momentum shift $k$ at the titled signal mirror inside the Sagnac interferometer.  Postselected light is measured at the position sensing detector to determine the unknown phase shift $\phi$ imparted by the SBC.  The distance between the source and the symmetric point of the interferometer is $\ell_1$ and the distance between the symmetric point and the position-sensitive detector (PSD) is $\ell_2$.}\label{fig:jitter setup}
+	\centerline{\centerline{\centerline{\includegraphics[scale=1]{InverseWeakValueNoise/figures/jitter_setup.pdf}}}}
+	\caption{An optical two-level weak value amplification setup.  Angular jitter noise is modeled by the first mirror which imparts a random momentum shift $q$ to the beam.  The beam then passes through a beam splitter (BS) and acquires a path-dependent phase at the Soleil-Babinet compensator (SBC) with half-wave plate (HWP), and a path-dependent momentum shift $k$ at the titled signal mirror inside the Sagnac interferometer.  Postselected light is measured at the position sensing detector to determine the unknown phase shift $\phi$ imparted by the SBC.  The distance between the source and the symmetric point of the interferometer is $\ell_1$ and the distance between the symmetric point and the position-sensitive detector (PSD) is $\ell_2$.}\label{fig:jitter setup}
 \end{figure}
-We now consider propagation effects (\emph{i.e.} diffraction), and an angular jitter of an optical beam which we model as an additional tilted mirror as in Fig.~\ref{fig:jitter setup}.  We can model the unnormalized state at the detector as 
+We now consider propagation effects (\emph{e.g.} diffraction), and an angular jitter of an optical beam which we model as an additional tilted mirror as in Fig.~\ref{fig:jitter setup}.  We can model the unnormalized state at the detector as 
 \begin{align}\label{eq:jitter state}
 	\ipr{x}{\varphi} &= \bra{x}\op{U}_{\ell_2} \op{U}_{k} \op{U}_\phi \op{U}_{\ell_1} \op{U}_q \ket{\varphi_0},\nonumber \\
 	&= \bra{x} e^{-i\op{p}^2\ell_2/2k_0}\sin(k\op{x} + \phi/2)e^{-i\op{p}^2\ell_1/2k_0}e^{iq\op{x}}\ket{\varphi_0},
@@ -168,15 +169,19 @@ which is simply the inverse of the postselection probability.  Hence, the total 
 Amplification in the inverse weak value regime under the effect of angular jitter noise allows for recovery of the full noiseless Fisher information for large beam width $\sigma$, as in the case of additive Gaussian white noise considered in Sec.~\ref{sec:gaussian noise}.  This is confirmed numerically using the full state \eqref{eq:jitter state}, with results shown in Fig.~\ref{fig:jitter plot}.
 
 \begin{figure}
-	\includegraphics[scale=1]{InverseWeakValueNoise/Figures/AngularJitter.pdf}
-	\caption[Fisher information of an inverse weak value measurement under angular jitter noise.]{Fisher information as a function of beam width for two different amplitudes of angular jitter, with $k\sigma$ held at a constant value of $.1$.  The numeric values of the parameters are $\phi=10^{-3}$, $k_0 = 10^5 cm^{-1}$, $\ell_1 = 10^5 cm$, $\ell_2 = 10^2 cm$.  Evidently larger choices of $\sigma$ allow one to overcome angular jitter, even when $k \ll Q$.}\label{fig:jitter plot}
+	\centerline{\centerline{\centerline{\includegraphics[scale=1]{InverseWeakValueNoise/figures/AngularJitter.pdf}}}}
+	\caption{Fisher information as a function of beam width for two different amplitudes of angular jitter, with $k\sigma$ held at a constant value of $.1$.  The numeric values of the parameters are $\phi=10^{-3}$, $k_0 = 10^5 cm^{-1}$, $\ell_1 = 10^5 cm$, $\ell_2 = 10^2 cm$.  Evidently larger choices of $\sigma$ allow one to overcome angular jitter, even when $k \ll Q$.}\label{fig:jitter plot}
 \end{figure}
 
 \section{Frequency measurements in the inverse weak value regime}\label{sec:frequency}
-It is straightforward to extend the above results for precision phase estimation to frequency estimation.  Here we treat two separate optical frequency measurement schemes which are robust to technical noise.
+It is straightforward to extend the above results for precision phase estimation to frequency estimation.  Here we show an optical frequency measurement scheme which is robust to certain kinds of additive technical noise.
 
-\subsection{Prism method}
-We can convert the phase measurements above to a frequency shift measurement simply by replacing the SBC and HWP in Fig.~\ref{fig:jitter setup} with a prism.  If we take the optical axis to be the $z$-direction and the momentum shift from the tilted mirror in the $x$-direction, we choose the prism to cause a small frequency dependent momentum shift $k_p(\omega)$ in the $y$-direction.  We will abbreviate this as $k_p$ in what follows for the sake of notational simplicity.  If our detector only measures shifts in the $x$-direction, the effect of the prism will be essentially the same as introducing a frequency dependent phase.  
+\begin{figure}
+	\centerline{\centerline{\centerline{\includegraphics[scale=1]{InverseWeakValueNoise/figures/deflection.pdf}}}}
+	\caption{An inverse weak value-based frequency measurement scheme as discussed in Sec.~\ref{sec:frequency}.  Inside the Sagnac interferometer we introduce a path-dependent momentum shift $k$ with a titled mirror to set the postselection probability.  A prism introduces a frequency-dependent momentum shift in a direction orthogonal to the titled mirror. }\label{fig:frequency-deflection}
+\end{figure}
+
+We can convert the phase measurements above to a frequency shift measurement simply by replacing the SBC and HWP in Fig.~\ref{fig:jitter setup} with a dispersive prism, to arrive at Fig.~\ref{fig:frequency-deflection}.  If we take the optical axis to be the $z$-direction and the momentum shift from the tilted mirror in the $x$-direction, we choose the prism to cause a small frequency dependent momentum shift $k_p(\omega)$ in the $y$-direction.  We will abbreviate this as $k_p$ in what follows for the sake of notational simplicity.  If our detector only measures shifts in the $x$-direction, the effect of the prism will be essentially the same as introducing a frequency dependent phase.  
 
 Before the detector, the two-dimensional distribution becomes
 \begin{align}
@@ -208,39 +213,14 @@ where $k_0$ is the wavenumber, $\Delta \omega$ is the frequency shift relative t
 	\mathcal{I}_\nu(\Delta \omega) &= \left[k_0\frac{\partial \theta}{\partial \omega}\right]^{2}\mathcal{I}_\nu(k_p), \nonumber \\
 	&= 2\left[k_0\sigma\frac{\partial \theta}{\partial \omega}\right]^{2}\nu.
 \end{align}
-Hence, the resolution of a precision frequency measurement can be made large for large $\sigma$ and for large $\partial\theta/\partial\omega$, as is the case for an atomic prism \cite{Starling2012}.
-
-As an example, for a group velocity $v_g/c = 10^{-3}$ (achievable in an atomic prism \cite{Starling2012}), $\sigma = 1$ cm,  $\lambda = 780$ nm, a laser power of 1 mW and an integration time of 1 second, we have a minimum resolvable frequency shift $\Delta \omega \sim 1$ Hz.
-\subsection{Group velocity delay method}
-\begin{figure}
-	\includegraphics[scale=.5]{InverseWeakValueNoise/Figures/displaced_sagnac.pdf}
-	\caption{An alternate geometry for precision frequency or phase measurements using a displaced Sagnac interferometer.  In the case of a frequency measurement a dispersive medium such as a warm rubidium (Rb) vapor must be used.  The blue dotted line represents the clockwise path in the interferometer and the red dashed line represents the counterclockwise path.}\label{fig:displaced sagnac}
-\end{figure}
-To generate a frequency dependent phase shift without introducing an unmeasured shift in the beam as above, we choose a slightly modified experimental geometry shown in Fig.~\ref{fig:displaced sagnac}.  The beam entering the interferometer is displaced from the symmetric axis so the counter-propagating paths do not overlap.  This allows us to place a dispersive medium in only a single path, which we again take to introduce a relative phase $\phi = (n(\omega)-1)k_0 d$ between the paths, where $n(\omega)$ is the frequency dependent index of refraction, $k_0$ is the beam wavenumber in vacuum, and $d$ is the path length through the medium.   
-
-Since the measurement operators in Sec.~\ref{sec:inverse weak values} are unchanged up to meaningless global phase factors, we are able to write the probability distribution as 
-\begin{align}
-	p(x|\omega) &= \frac{1}{p_f}\sin^2\left(kx + \frac{\phi(\omega)}{2}\right)\left|\ipr{x}{\varphi}\right|^2.
-\end{align}
-The Fisher information per detected event for the parameter $\omega$ is then
-\begin{align}
-	\nonumber \mathcal{I}(\omega) &= \frac{1}{p_f}\left[\left(\frac{\partial \phi}{\partial \omega}\right)^2 - e^{-2k^2\sigma^2}\sin(\phi) \frac{\partial^2 \phi}{\partial \omega^2}\right], \\
-	\nonumber &\approx \frac{1}{p_f}\left(\frac{\partial \phi}{\partial \omega}\right)^2, \\
-	\nonumber &= \frac{d^2}{p_f}\left[\frac{1}{v_g} - \frac{1}{c}\right]^2, \\
-	&\approx \frac{\tau_g^2}{p_f},
-\end{align}
-where $v_g \ll c$ is the group velocity in the dispersive medium, and $\tau_g$ represents the time it takes a wave envelope to travel a distance $d$ at the group velocity (the group delay).  
-
-As above, for $\nu$ total input events, we multiply this expression by $p_f \nu$ to get the total Fisher information
-\begin{align}
-	\mathcal{I}_\nu(\omega) &= \nu\tau_g^2.
-\end{align}
-For a warm rubidium vapor, $v_g/c$ can potentially be on the order of $10^{-7}$ \cite{Boyd2001}.  Here we will use a readily achievable value of $10^{-3}$, as in the previous subsection.  With a cell width of 1 cm, $\lambda = 780$ nm, a laser power of 1 mW and an integration time of 1 second, we have a minimum resolvable frequency shift of $\Delta \omega \sim 10^{-1}$ Hz. 
+Hence, the resolution of a precision frequency measurement can be made large for large $\sigma$ and for large $\partial\theta/\partial\omega$.
 
 \section{Remarks}
-As in the weak value regime, precision phase measurements in the inverse weak value regime are robust to several types of technical noise.  In particular, the type of measurements considered here can approach the full noiseless Fisher information under additive Gaussian technical noise and angular jitter noise if one is free to increase the variance $\sigma^2$ of the initial state arbitrarily.  Our results do not crucially rely on a specific experimental geometry, and will generalize well to a wide range of weak value based phase measurements.
+As in the weak value regime, precision phase measurements in the inverse weak value regime are robust to several types of technical noise.  In particular, the type of measurements considered here can approach the full noiseless Fisher information under additive Gaussian technical noise and angular jitter noise if one is free to increase the variance $\sigma^2$ of the initial state arbitrarily.  Our results do not crucially rely on a specific experimental geometry, and will generalize well to a wide range of weak value based phase measurements. 
 
-Additionally, we have shown that the same techniques used to estimate phase with weak measurements can also be used for frequency estimation, with the same robustness to technical noise.  This type of frequency measurement can be further enhanced by taking advantage of nonlinear effects, \emph{e.g.}~those found in rubidium vapor.
+Additionally, we have shown that the same techniques used to estimate phase with weak measurements can also be used for frequency estimation, with the same robustness to technical noise.  This analysis demonstrates the usefulness of this kind of relative frequency metrology with a possible application to laser-locking.  Further research directions include the potential cooling of the mirrors to reduce thermal vibrations.
+
+
 
 %\section{Acknowledgments}
 %This work was supported by DRS Technologies and Army Research Office Grant No. W911NF-13-1-0402. 

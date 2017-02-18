@@ -38,7 +38,7 @@ In Sec.~\ref{sec:conclusion} we give our concluding remarks.
 %\textcolor{red}{(Add background of SPDC and double Gaussian approximation, add discussion for the setup in Fig. 1, add pump filter in Fig. 1.)}
 
 \begin{figure}
-	\includegraphics[scale=.6]{Biphotons/Figures/setup.pdf}
+	\centerline{\includegraphics[scale=.6]{Biphotons/Figures/setup.pdf}}
 	\caption[Experimental setup for precision displacement measurements using entangled biphoton pairs.]{Schematic for a biphoton displacement measurement.  
 		Photons from a laser source are converted into correlated pairs in a colinear type-II spontaneous parametric down conversion (SPDC) process (\emph{i.e.}, one in which two photons of orthogonal polarization are generated), for example with a BBO crystal.
       	Uncorrelated short wavelength photons (green solid line) are filtered out, while the horizontally polarized (red line) and vertically polarized (blue line) photons pass through to a movable mirror.  
@@ -50,7 +50,7 @@ In Sec.~\ref{sec:conclusion} we give our concluding remarks.
 \end{figure}
 
 \begin{figure}
-    \includegraphics[scale=1]{Biphotons/Figures/distribution.pdf}
+    \centerline{\includegraphics[scale=1]{Biphotons/Figures/distribution.pdf}}
     \caption[Probability distributions of biphoton displacements for different entanglement strengths.]{The probability distribution \eqref{eq:imperfectprofile} as a function of $x_1$ and $x_2$.  
       Clockwise from the upper left we have increasing correlation with $\epsilon/\sigma=1$, 0.75, 0.5, and 0.1.  
       As expected, $x_1$ and $x_2$ are increasingly anti-correlated with decreasing $\epsilon$. }
@@ -92,7 +92,7 @@ In this paper we will use Fisher information \cite{Larsen2001} as the metric use
 From statistics, Fisher information is a measure of how sensitively the distribution depends on the parameter $d$.
 The Fisher information per photon pair is simply calculated (for perfect detector resolution) as 
 \begin{figure}
-	\includegraphics[scale=1]{Biphotons/Figures/random-walk.pdf}
+	\centerline{\includegraphics[scale=1]{Biphotons/Figures/random-walk.pdf}}
 	\caption{Net signal for biphotons after 10,000 independent events for split-detection.  
 		The net signal here is analogous to the net steps from the origin in a random walk, with the probabilities of two steps backward, two steps forward, and zero steps per trial given by Eq.~\eqref{eq:biphotonprobs}.  
 		The solid blue signal represents uncorrelated photon pairs, while the red dashed line represents entangled photons with $\epsilon/\sigma = 0.01$.}
@@ -345,7 +345,7 @@ For these computations we use a detector width of $10\sigma$, and hence a pixel 
 In general, it is possible to improve the resolution by using non-homogeneous pixel widths, but for simplicity we will not treat that case here. 
 
 \begin{figure}
-	\includegraphics[scale=1]{Biphotons/Figures/n_pixel_plot.pdf}
+	\centerline{\includegraphics[scale=1]{Biphotons/Figures/n_pixel_plot.pdf}}
 	\caption[Fisher information for biphoton displacement measurements under detector pixelation.]{A comparison of the Fisher information (in arbitrary units) due to biphoton pairs incident on detectors with different numbers of pixels $N$, using the numerical value $\sigma=1$ and $d=0.05$.
 	For each curve, the information for uncorrelated photons is given by the value of the curve for $\epsilon/\sigma = 1$.  
 	The dotted black line represents perfect spatial resolution calculated by Eq.~\eqref{eq:biphotonFisher},  the solid blue curve represents split-detection ($N=2$), the red dashed curve represents a ten-pixel detector, and the case of fifty pixels is given by the purple dot-dashed curve.
@@ -414,7 +414,7 @@ This is fundamentally due to the dependence of the Fisher information on the par
 
 \subsection{Small $\nu$ scaling}
 \begin{figure}
-\includegraphics[]{Biphotons/Figures/crossover.pdf}
+\centerline{\includegraphics[]{Biphotons/Figures/crossover.pdf}}
 \caption[The number of events needed to detect some minimum resolvable shift in biphoton displacement measurements, for different entanglement strengths.]{The number of events needed to achieve a SNR of 1 under split-detection as a function of the parameter $d$ (in arbitrary units) for different values of $\epsilon/\sigma$.  From top to bottom the curves represent $\epsilon/\sigma = 1$ (\emph{i.e.,} uncorrelated), 0.5, 0.1, 0.05, and 0 (\emph{i.e.,} perfect correlations).  As expected from Eq.~\eqref{eq:heisenberg number}, Heisenberg scaling can only be observed for numbers of events much less than $\sigma/\epsilon$, e.g., the $\epsilon/\sigma = 0.01$ curve only matches the Heisenberg curve for $\nu<\sim 100$. }
 \label{fig:crossover}
 \end{figure}

@@ -3,6 +3,9 @@
 *.bbl
 *.log
 *.toc
+*.lot
+*.lof
+*.el
 *.blg
 */auto/*
 auto/*
