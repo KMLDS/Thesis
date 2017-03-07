@@ -1,4 +1,4 @@
-\chapter[Biphoton displacement measurements]{Improving measurement sensitivity through entanglement}\label{ch:biphotons}
+\chapter[Biphoton displacement measurements]{Entangled biphoton displacement measurements}\label{ch:biphotons}
 Measurements of the deflection or displacement of optical beams are useful in a wide range of experiments and applications; for example, optical beam deflections enable precision atomic force microscopy measurements with fairly modest experimental equipment \cite{Putnam1992}.  
 In recent years, a variety of these methods have been developed using classical states of light.  
 In particular, a number of schemes utilizing weak value amplification have been successful in measuring optical angular deflections as small as hundreds of femtoradians and linear displacements as small as tens of femtometers \cite{Dixon2009}, and have allowed for ultra-precise measurements to be made in relatively noisy environments \cite{Hosten2008}. 
@@ -693,7 +693,12 @@ This advantage comes from the fact that the sum of the biphoton positions is det
 
 The detection and estimation scheme used in the paper is to count the number of times that the biphoton arrive at the left side, right side or at different sides of the detector and then extract the information of the beam displacement from the counts. We proposed an experiment using coincidence counting and two split detectors to implement this theory. This method is statistically optimal for this experimental setup.  A possible alternative approach is to consider the distribution of each single photon, estimate the displacement from it, and then average the estimates from the two photons. This approach also utilizes the correlation of the entangled photons, since the two estimates are correlated by the photon correlation.  We have shown this approach also saturates the Cram\'{e}r-Rao bound, and therefore matches the precision of the split-detection measurement considered here.
 
-%\pagebreak\setcounter{equation}{0} \renewcommand{\theequation}{S\arabic{equation}} \onecolumngrid \setcounter{enumiv}{0}
+\section{Conclusion}
+In this thesis we have investigated several approaches to precision optical measurements.  In particular, we have discussed how weak value amplification is capable of increasing the expectation value of a pointer variable (like the transverse position of an optical beam) without bound.  However, weak values are not able to increase the sensitivity over more traditional measurement schemes when considering a noiseless experimental environment.  As discussed in chapter~\ref{ch:iwv}, when one considers different sources of technical noise, even a relatively simple weak value amplification experiment will outperform direct measurements.
+
+We have also shown several techniques useful in other metrological contexts can be used to significantly enhance the original weak value experiments.  In chapters \ref{ch:pulsed} and \ref{ch:cw}, we considered two different recycling schemes which allow a boost in sensitivity due to an effective power increase.  In the case of continuous wave recycling, we showed it is actually possible to obtain an arbitrarily precise measurement if system losses can be ignored.  In chapter \ref{ch:squeezed} we demonstrated that it is also possible to use squeezed light to reduce quantum noise in addition to technical noise advantages already afforded by weak value amplification.
+
+Finally, we have discussed the ability of spatially entangled biphoton pairs to reduce the uncertainty in an optical displacement measurement well below the level of the uncertainties in the position of the individual photons.  Overall, we have shown it is possible to design optical metrological experiments which are robust to many types of noise, and which can achieve precision far superior to traditional measurement schemes. 
 
 
 %%% Local Variables:

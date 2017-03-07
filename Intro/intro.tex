@@ -7,7 +7,7 @@ To provide a motivating example which we will discuss at length over the course 
 
 As we will discuss further in this introductory chapter, the problem of finding the minimum resolvable tilt in this experiment is fully determined by the probability distribution of photons coming from the source, and a physical understanding of the parametric form the magnitude of the mirror tilt will have on the distribution.  Once that is known, it is straightforward to come up with a way to estimate the mirror tilt given some experimental data, and to determine the approximate error of that estimate.
 
-Of course, no experiment can actually be carried out under noiseless conditions with perfect detectors.  On top of the quantum uncertainty discussed above, there will be a number of sources of technical noise.  In the simple mirror tilt experiment for instance, we would be likely to experience shifts in any of the experimental components due to vibrations, shifts in the beam due to turbulence, or electronic noise in the detector, to name a few.  With that in mind, it is also important to consider how robust a given measurement is to technical noise, and if there are ways to make it more robust to this noise.  As we will discuss throughout this work, a technique known as weak value amplification has proven capable of mitigating many forms of technical noise \cite{Jordan2014, Starling2009}.  This has been examined in detail both theoretically and experimentally since the discovery of weak values by Aharonov, Albert, and Vaidman in 1988 \cite{Aharonov1988}.
+Of course, no experiment can actually be carried out under noiseless conditions with perfect detectors.  On top of the quantum uncertainty discussed above, there will be a number of sources of technical noise, which refers to any type of noise due to experimental conditions.  In the simple mirror tilt experiment for instance, we would be likely to experience shifts in any of the experimental components due to vibrations, shifts in the beam due to turbulence, or electronic noise in the detector, to name a few.  With that in mind, it is also important to consider how robust a given measurement is to technical noise, and if there are ways to make it more robust to this noise.  As we will discuss throughout this work, a technique known as weak value amplification has proven capable of mitigating many forms of technical noise \cite{Jordan2014, Starling2009}.  This has been examined in detail both theoretically and experimentally since the discovery of weak values by Aharonov, Albert, and Vaidman in 1988 \cite{Aharonov1988}.
 
 Another method of countering noise developed over the past several decades involves the use of nonclassical states of light.  There are numerous different nonclassical states capable of reducing the quantum uncertainty in some variable of interest, however the most prominent of these are the so-called squeezed states.  These allow the experimenter to decrease the variance in some variable at the expense of an increase in variance of the conjugate variable.  Squeezed states have been primarily considered in precision phase measurements, and in gravitational wave detection in particular \cite{Caves1981, Vahlbruch2005}.  They have been used to great effect in precision spatial measurements as well \cite{Barnett2003, Treps2002, Treps2003}, which we will focus on heavily in this work. 
 
@@ -20,14 +20,14 @@ In a typical quantum measurement scheme, we have some quantum system of interest
 \end{align}
 Finally, the interaction Hamiltonian combining the system and meter is given by
 \begin{align}
-  \op{H} &= \epsilon \op{A} \otimes \op{x},
+  \op{H} &= \epsilon \op{A} \otimes \op{x} \delta{(t - t_0)},
 \end{align}
-which modifies the state as
+Where $\epsilon$ sets the strength of the interaction, and $t_0$ is the time where the impulsive interaction takes place.  This modifies the state as
 \begin{align}
 \nonumber  \ket{\Psi} &= \op{U}\ket{\Psi_0}, \\
                       &= \exp\left(-i\epsilon \op{A} \otimes \op{x} \right) \ket{\Psi_0}.
 \end{align}
-Here we are restricting our discussion to initial product states and time independent Hamiltonians for clarity in this short introduction.  It is straightforward to remove either restriction, and doing so doesn't change anything fundamental about our discussion of quantum measurements and weak values.  For a more in depth review of both theory and applications, see the review article \cite{Dressel2014}.
+Here we are restricting our discussion to initial product states and Hamiltonians with trivial time dependence for clarity in this short introduction.  It is straightforward to remove either restriction, and doing so does not change anything fundamental about our discussion of quantum measurements and weak values.  For a more in depth review of both theory and applications, see the review article \cite{Dressel2014}.
 
 In most cases, we imagine the experimenter makes a direct measurement on the pointer state after this interaction takes place.  In a weak value measurement however, an intermediate step is taken first.  We make a measurement on the system state, in a process called postselection.  That is, we choose a postselection state $\ket{\psi_{ps}}$, and make a projective measurement on the state $\ket{\Psi}$,
 \begin{align}\label{eq:postselection state}
@@ -42,7 +42,7 @@ We have truncated the expansion \eqref{eq:postselection state} to first order in
 \begin{align}
   \bra{\Psi_0}\op{X}\ket{\Psi_0} - \bra{\Psi_{ps}}\op{X}\ket{\Psi_{ps}} &= 2i\epsilon ~\text{Im}{A_w} \bra{\varphi_0}\op{X}^2\ket{\varphi_0} + ...
 \end{align}
-In the limit of very small $\ipr{\psi_{ps}}{\psi_0}$, the weak value can be made arbitrarily large, and so this pointer shift can be made very large as well.  Note however that $|\ipr{\psi_{ps}}{\psi_0}|^2$ gives the postselection probability (i.e.~the probability of a given event being postselected), so fewer probes make it to the detector for larger pointer shifts.  In this work we will only be concerned with weak value measurements that have a nonzero imaginary compoAs we will discuss in later chapters, this is the essential tradeoff in weak value measurements, and it actually prevents weak value measurements from exceeding the sensitivity of other types of measurements in the absence of noise.
+In the limit of very small $\ipr{\psi_{ps}}{\psi_0}$, the weak value can be made arbitrarily large, and so this pointer shift can be made very large as well.  Note however that $|\ipr{\psi_{ps}}{\psi_0}|^2$ gives the postselection probability (i.e.~the probability of a given event being postselected), so fewer probes make it to the detector for larger pointer shifts.  In this work we will only be concerned with weak value measurements that have a nonzero imaginary component.  As we will discuss in later chapters, this is the essential tradeoff in weak value measurements, and it actually prevents weak value measurements from exceeding the sensitivity of other types of measurements in the absence of noise.
 
 Despite this, weak values have proven remarkably effective in a number of experiments to date.  This is primarily due to weak value measurements being robust to many commonly encountered forms of techincal noise.  We have also showed theoretically that weak value measurements can be ``recycled'' to allow probes which fail postselection to be reused, in principle allowing all probes to be eventually recycled.  This effect has been recently demonstrated experimentally.
 
@@ -125,13 +125,13 @@ If a given estimator saturates the inequality it is said to be ``efficient''.  M
 \subsection{A simple example}
 It is helpful to consider a maximum likelihood estimation example to clarify why it is useful in practice.  Say we have calculated the distribution of an optical beam just before a position sensing detector will be of the form
 \begin{align}
-  p(x|\theta) &= \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{(x-\theta)^2}{2} \right),
+  p(x|\theta) &= \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\theta)^2}{2\sigma^2} \right),
 \end{align}
-where $\theta$ is an unknown displacement of the beam and we are working in units where the variance in position of the beam is one.
+where $\theta$ is an unknown displacement of the beam and $\sigma^2$ is the variance of the beam distribution.
 
 If $n$ photons are measured at positions $x_i$, the log-likelihood is given by
 \begin{align}
-  \ell(\theta) &= -\sum_i^n \frac{(x_i - \theta)}{2} + \text{const}.
+  \ell(\theta) &= -\sum_i^n \frac{(x_i - \theta)^2}{2\sigma^2} + \text{const}.
 \end{align}
 To find the maximum likelihood estimator we take the derivative of this expression with respect to $\theta$ and set it equal to zero,
 \begin{align}
@@ -143,7 +143,7 @@ which yields
 \end{align}
 That is, the maximum likelihood estimate of $\theta$ is equal to the sample average of our data.  To obtain the variance in the estimator we simply calculate the Fisher information
 \begin{align}
-\nonumber  \mathcal{I}(\theta) &= -\int_{-\infty}^{\infty}\text{d}x~ p(x|\theta) \partial_\theta^2  p(x|\theta), \\
+\nonumber  \mathcal{I}(\theta) &= -\int_{-\infty}^{\infty}\text{d}x~ p(x|\theta) \partial_\theta^2  \log p(x|\theta), \\
 \nonumber                      &= \int_{-\infty}^{\infty}\text{d}x~ p(x|\theta), \\
                                &= 1.
 \end{align}
