@@ -4,18 +4,23 @@
 \pagestyle{fancyplain}
 \begin{document}
 
+\pagenumbering{roman}
+
 \input{titlepage}
 \doublespacing
-\input{abstract}
-\input{biosketch}
-\input{contributors}
-\input{acknowlegments}
-
-\pagenumbering{roman}
 \tableofcontents
-\clearemptydoublepage
+\input{biosketch}
+\addcontentsline{toc}{section}{Biographical Sketch}
+\input{acknowlegments}
+\addcontentsline{toc}{section}{Ackowlegments}
+\input{abstract}
+\addcontentsline{toc}{section}{Abstract}
+\input{contributors}
+\addcontentsline{toc}{section}{Contributors and Funding Sources}
 \listoftables
+\addcontentsline{toc}{section}{List of Tables}
 \listoffigures
+\addcontentsline{toc}{section}{List of Figures}
 \clearemptydoublepage
 
 % \pagestyle{empty} % is restored to fancy under the chapter heading of intro.tex
