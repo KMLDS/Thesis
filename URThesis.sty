@@ -16,7 +16,7 @@
 % move page numbering to topx
 \fancyfoot{} % clear all footer fields
 %\fancyhead{}
-\fancyhead[RO,LE]{\thepage}
+\fancyhead[RO,RE]{\thepage}
 %\fancyhead[LO,RE]{\chaptername~\thechapter}
 
 
@@ -82,3 +82,6 @@
 
 % from Yossof
 \newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}}
+
+% change contents title
+\renewcommand{\contentsname}{Table of Contents}

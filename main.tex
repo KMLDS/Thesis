@@ -4,15 +4,15 @@
 \pagestyle{fancyplain}
 \begin{document}
 
+\pagenumbering{roman}
 \input{titlepage}
 \doublespacing
-\input{abstract}
-\input{biosketch}
-\input{contributors}
-\input{acknowlegments}
-
-\pagenumbering{roman}
 \tableofcontents
+\input{biosketch}
+\input{acknowledgements}
+\input{abstract}
+\input{contributors}
+
 \clearemptydoublepage
 \listoftables
 \listoffigures
@@ -29,6 +29,7 @@
 \input{SqueezedLight/squeezed}
 \input{Biphotons/biphotons}
 
+\addcontentsline{toc}{chapter}{References}
 \bibliographystyle{alpha}
 \bibliography{main}
 \end{document}
